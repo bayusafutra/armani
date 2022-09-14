@@ -1,0 +1,109 @@
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+
+.h-custom {
+height: calc(100% - 50px);
+}
+
+@media (max-width: 1000px) {
+.h-custom {
+height: 100%;
+}
+}
+
+*{
+    font-family:Arial, Helvetica, sans-serif;
+    line-height: 20px;
+    font-size: 15px;  
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all .2s linear;
+    text-transform: capitalize; 
+}
+
+html{
+    margin: 0;
+    padding: 0;
+    background-color: #dedede;
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+.layar-dalam{
+    width: 1000px;
+    margin: auto;
+}
+
+nav{
+    z-index: 100;
+    color: #FFFFFF;
+    text-align: center;
+    position: fixed;
+    border-bottom: 1px solid #b1b1b1;
+    line-height: 60px;
+    width: 100%;
+    transition: backgrond-color 0.5s ease;
+}
+
+nav.putih{
+    background-color: #FFF;
+}
+
+nav .logo{
+    float: left;
+    position: relative;
+    line-height: 55px;
+    text-align: center;
+}
+
+nav .logo img{
+    vertical-align: middle;
+    width: 180px;
+}
+
+nav .menu{
+    float: right;
+    height: 60px;
+    max-height: 600px;
+}
+
+nav .menu ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav .menu ul li{
+    list-style-type: none;
+    float: left;
+    line-height: 60px;
+}
+
+nav ul li a{
+    color: #FFF;
+    text-align: center;
+    padding: 0px 16px 0px 16px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover{
+    text-decoration: underline;
+}
+
+.navbar-nav .{
+    height: 30px;
+}

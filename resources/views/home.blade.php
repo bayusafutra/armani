@@ -79,7 +79,7 @@
           <a href="" class="nav-item nav-link active">Home</a>
           <a href="about.html" class="nav-item nav-link">About</a>
           <a href="contact.html" class="nav-item nav-link">Contact</a>
-          <a href="" class="nav-item nav-link">Register</a>
+          <a href="/signup" class="nav-item nav-link">Register</a>
           <a href="/login" class="nav-item nav-link">Login</a>
           <!-- <div class="nav-item dropdown"> -->
             <!-- <a
@@ -156,7 +156,7 @@
       <h5 class="card-title">Nanggroe Aceh Darussalam</h5>
       <p class="card-text">Provinsi Nanggroe Aceh Darussalam yang terletak di Pulau Sumatera dengan Banda Aceh. Pada provinsi ini, terdapat kota paling barat Indonesia yaitu Kota Sabang. Provinsi ini memiliki ikon dan keragaman yang beragam yaitu adalah Masjid Darussalam dan Mie Acehnya. </p>
       <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-      <a href=""><button class="btn btn-success">Baca Selengkapnya...</button></a>
+      <a style="color: black" href=""><button class="btn btn-success">Baca Selengkapnya...</button></a>
     </div>
   </div>
   <div class="card">
@@ -296,7 +296,7 @@
     </div>
   </div>
   <div class="card">
-    <img src="/img/IKON DIY.jpg" class="card-img-top" alt="...">
+    <img src="/img/IKON DIY.jpg" style="width: 440px; height: 300px;" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Daerah Istimewa Yogyakarta</h5>
       <p class="card-text">Provinsi Daerah Istimewa Yogyakarta merupakan provinsi dengan ibukota Kota Yogyakarta yang dikenal dengan julukan kota pelajar karena memiliki banyak kampus ada di provinsi tersebut. Gudeg merupakan  makanan khas dari Provinsi DI Yogyakarta yang menjadi ikonnya. </p>
@@ -376,7 +376,7 @@
     </div>
   </div>
   <div class="card">
-    <img src="/img/IKON NTT.jpg" class="card-img-top" alt="...">
+    <img src="/img/IKON NTT.jpg" style="width: 440px; height: 300px;" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Nusa Tenggara Timur</h5>
       <p class="card-text">Nusa Tenggara Timur merupakan provinsi dengan ibukota Kota Kupang. Provinsi ini menyuguhkan pemandangan yang indah contohnya saja seperti di Labuan Bajo. Di NTT terdapat taman nasional yang melindungi reptil terbesar yang ada di dunia yaitu komodo yang bernama Taman Nasional Komodo. </p>

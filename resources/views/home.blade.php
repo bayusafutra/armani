@@ -172,7 +172,7 @@
     <img src="/img/IKON SUMSEL.jpg" style="width: 440px; height: 300px;" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Sumatra Selatan</h5>
-      <p class="card-text">Kota Palembang merupakan ibukota dari Provinsi Sumatra Utara. Provinsi ini dikenal dengan makanan khasnya yaitu Pempek Palembang. Selain itu, di Provinsi ini juga terdapat jembatan terpanjang se-Asia Tenggara dan  Jembatan yang pertama kali dibangun di Palembang yaitu Jembatan Ampera</p>
+      <p class="card-text">Kota Palembang merupakan ibukota dari Provinsi Sumatra Utara. Provinsi ini dikenal dengan makanan khasnya yaitu Pempek Palembang. Selain itu, di Provinsi ini juga terdapat jembatan terpanjang se-Asia Tenggara dan  Jembatan yang pertama kali dibangun di Palembang yaitu Jembatan Ampera.</p>
       <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
       <a href=""><button class="btn btn-success">Baca Selengkapnya...</button></a>
     </div>

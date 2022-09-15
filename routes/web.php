@@ -33,3 +33,7 @@ Route::get('/signup2', function () {
     return view('signup_2');
 });
 
+// Route::get('/signup2', function () {
+//     return view('signup_2');
+// });
+

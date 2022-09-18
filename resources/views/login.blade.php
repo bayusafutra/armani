@@ -17,6 +17,8 @@
 
     <script src="https://kit.fontawesome.com/1a60c45adc.js" crossorigin="anonymous"></script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+    
   </head>
 <body>
 
@@ -53,7 +55,7 @@
                   </div>
 
                   <div class="pt-1 mb-4">
-                    <a class="btn btn-dark btn-lg btn-block" href="/" type="button">Login</a>
+                    <a class="btn btn-dark btn-lg btn-block" href="/Home" type="button">Login</a>
                   </div>
 
                   <a class="small text-muted" href="#!">Forgot password?</a>

@@ -76,11 +76,10 @@
       </button>
       <div class="collapse navbar-collapse py-4 py-lg-0" id="navbarCollapse">
         <div class="navbar-nav ms-auto">
-          <a href="" class="nav-item nav-link active">Home</a>
-          <a href="/about" class="nav-item nav-link">About</a>
+          <a href="/" class="nav-item nav-link active">Home</a>
+          <a href="/About" class="nav-item nav-link">About</a>
           <a href="contact.html" class="nav-item nav-link">Contact</a>
-          <a href="/signup" class="nav-item nav-link">Register</a>
-          <a href="/login" class="nav-item nav-link">Login</a>
+          <a href="/" class="nav-item nav-link">Logout</a>
           <!-- <div class="nav-item dropdown"> -->
             <!-- <a
               href="#"

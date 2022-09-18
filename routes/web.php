@@ -17,9 +17,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/home', function () {
-    return view('home');
-});
 
 Route::get('/login', function () {
     return view('login');
@@ -33,7 +30,15 @@ Route::get('/signup2', function () {
     return view('signup_2');
 });
 
-// Route::get('/signup2', function () {
-//     return view('signup_2');
-// });
+Route::get('/Home', function () {
+    return view('home2');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/About', function () {
+    return view('about2');
+});
 

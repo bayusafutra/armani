@@ -78,7 +78,7 @@
         <div class="navbar-nav ms-auto">
           <a href="/" class="nav-item nav-link active">Home</a>
           <a href="/About" class="nav-item nav-link">About</a>
-          <a href="contact.html" class="nav-item nav-link">Contact</a>
+          <a href="#CONTACT" class="nav-item nav-link">Contact</a>
           <a href="/" class="nav-item nav-link">Logout</a>
           <!-- <div class="nav-item dropdown"> -->
             <!-- <a
@@ -1117,6 +1117,7 @@
     <!-- Testimonial End -->
 
     <!-- Footer Start -->
+    <section id ="CONTACT">
     <div
       class="container-fluid footer bg-dark text-light footer mt-5 pt-5 wow fadeIn"
       data-wow-delay="0.1s"
@@ -1200,6 +1201,7 @@
         </div>
       </div>
     </div>
+</section>
     <!-- Footer End -->
 
     <!-- Back to Top -->

@@ -523,6 +523,18 @@
 
 
 /*** Footer ***/
+.isi h3 {
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-top: 20px;
+    margin-bottom: 70px;
+}
+
+.isi h4{
+    text-align: center;
+    margin-left: 350px;
+    margin-right: 350px;
+}
 .footer {
     background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../img/bg-2.jpg) center center no-repeat;
     background-size: cover;
@@ -587,3 +599,7 @@
 .container h1{
     font-size: 50px;
 }
+
+/* .card {
+    margin-top: 100px;
+} */

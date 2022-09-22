@@ -23,12 +23,12 @@
 <section class="vh-200" style="background-color: #42855B;">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col col-xl-10">
+      <div class="col col-xl-11">
         <div class="card" style="border-radius: 1rem;">
-          <div class="row g-5">
+          <div class="row g-8">
             <div class="col-md-6 col-lg-5 d-none d-md-block" style="height: 200px">
               <img src="/img/login.jpg"
-                alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem; height: 609px" />
             </div>
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
@@ -36,7 +36,7 @@
                 <form>
 
                   <div class="d-flex align-items-center mb-3 pb-1">
-                    <i class="fas fa-cubes fa-2x me-3" style="color: #F7CCAC;"></i>
+                    <i class="fas fa-cubes fa-2x me-3" style="color: black;"></i>
                     <span class="h1 fw-bold mb-0">ARMANI SERUU</span>
                   </div>
 
@@ -84,7 +84,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Armani Login</title>
+    <title>Armani SignUp</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>

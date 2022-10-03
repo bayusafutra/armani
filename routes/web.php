@@ -46,9 +46,6 @@ Route::get('/forgotpassword', function () {
     return view('forgotpass');
 });
 
-Route::get('/nyoba', function () {
-    return view('nyoba');
-});
 
 Route::get('/forgotpass', function () {
     return view('forgotpass2');

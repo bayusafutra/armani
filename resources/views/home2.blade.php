@@ -1152,13 +1152,13 @@
           </div>
           <div class="col-lg-3 col-md-6">
             <h5 class="text-light mb-4">Quick Links</h5>
-            <a class="btn btn-link" href="">About Us</a>
+            <a class="btn btn-link" href="/About">About Us</a>
             <a class="btn btn-link" href="">Contact Us</a>
             <a class="btn btn-link" href="">Our Services</a>
           </div>
           <div class="col-lg-3 col-md-6">
             <h5 class="text-light mb-4">Popular Links</h5>
-            <a class="btn btn-link" href="">About Us</a>
+            <a class="btn btn-link" href="/About">About Us</a>
             <a class="btn btn-link" href="">Contact Us</a>
             <a class="btn btn-link" href="">Our Services</a>
           </div>

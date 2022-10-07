@@ -51,5 +51,31 @@ Route::get('/forgotpass', function () {
     return view('forgotpass2');
 });
 
+Route::get('/provinsi', function () {
+    return view('provinsi');
+});
 
+Route::get('/makanankhas', function () {
+    return view('makanankhas');
+});
+
+Route::get('/pakaianadat', function () {
+    return view('pakaianadat');
+});
+
+Route::get('/rumahadat', function () {
+    return view('rumahadat');
+});
+
+Route::get('/senjatadaerah', function () {
+    return view('senjatadaerah');
+});
+
+Route::get('/sukuadat', function () {
+    return view('sukuadat');
+});
+
+Route::get('/tarianadat', function () {
+    return view('tarianadat');
+});
 

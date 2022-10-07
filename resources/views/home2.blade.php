@@ -155,7 +155,7 @@
       <h5 class="card-title">Nanggroe Aceh Darussalam</h5>
       <p class="card-text">Provinsi Nanggroe Aceh Darussalam yang terletak di Pulau Sumatera dengan Banda Aceh. Pada provinsi ini, terdapat kota paling barat Indonesia yaitu Kota Sabang. Provinsi ini memiliki ikon dan keragaman yang beragam yaitu adalah Masjid Darussalam dan Mie Acehnya. </p>
       <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-      <a style="color: black" href=""><button class="btn btn-success">Baca Selengkapnya...</button></a>
+      <a style="color: black" href="/provinsi"><button class="btn btn-success">Baca Selengkapnya...</button></a>
     </div>
   </div>
   <div class="card">

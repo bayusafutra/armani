@@ -58,7 +58,8 @@
                     <a class="btn btn-dark btn-lg btn-block" href="/Home" type="button">Login</a>
                   </div>
 
-                  <a class="small text-muted" href="/forgotpassword">Forgot password?</a>
+                  <a class="small text-muted" href="/forgotpassword">Forgot password? </a>
+                  <a class="small text-muted" style="color: black" href="/loginadmin">Login as Admin</a>
                   <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="/signup"
                       style="color: #393f81;">Register here</a></p>
                 </form>

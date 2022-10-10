@@ -79,3 +79,18 @@ Route::get('/tarianadat', function () {
     return view('tarianadat');
 });
 
+Route::get('/nyoba', function () {
+    return view('nyoba');
+});
+
+Route::get('/profile', function () {
+    return view('profile');
+});
+
+Route::get('/editprofile', function () {
+    return view('editprofile');
+});
+
+Route::get('/loginadmin', function () {
+    return view('loginadmin');
+});

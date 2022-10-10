@@ -62,10 +62,10 @@
       class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-4 px-lg-5 wow fadeIn"
       data-wow-delay="0.1s"
     >
-      <a href="index.html" class="navbar-brand p-0">
+      <div href="index.html" class="navbar-brand p-0">
         <img class="img-fluid me-3" src="https://fraguru.com/mdimg/perfume/375x500.409.jpg" alt="Icon" />
         <h1 class="m-0" style="color: black;">Armani Pesona Indonesia</h1>
-      </a>
+      </div>
       <button
         type="button"
         class="navbar-toggler"
@@ -76,29 +76,25 @@
       </button>
       <div class="collapse navbar-collapse py-4 py-lg-0" id="navbarCollapse">
         <div class="navbar-nav ms-auto">
-          <a href="/" class="nav-item nav-link active">Home</a>
+          <a href="/Home" class="nav-item nav-link active">Home</a>
           <a href="/About" class="nav-item nav-link">About</a>
           <a href="#CONTACT" class="nav-item nav-link">Contact</a>
-          <a href="/" class="nav-item nav-link">Logout</a>
-          <!-- <div class="nav-item dropdown"> -->
-            <!-- <a
-              href="#"
+          <div class="nav-item dropdown">
+            <a
+              href=""
               class="nav-link dropdown-toggle"
               data-bs-toggle="dropdown"
-              >Pages</a
+              >User</a
             >
             <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-              <a href="animal.html" class="dropdown-item">Our Animals</a>
-              <a href="membership.html" class="dropdown-item">Membership</a>
-              <a href="visiting.html" class="dropdown-item">Visiting Hours</a>
-              <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-              <a href="404.html" class="dropdown-item">404 Page</a>
+              <a href="/profile" class="dropdown-item">Profile</a>
+              <a href="/" class="dropdown-item">Logout</a>
             </div>
-          </div> -->
+          </div>
         </div>
-        <!-- <a href="" class="btn btn-primary"
-          >Buy Ticket<i class="fa fa-arrow-right ms-3"></i
-        ></a> -->
+        <a href="" class="btn btn-primary"
+          >Armani's Store<i class="fa fa-arrow-right ms-3"></i
+        ></a>
       </div>
     </nav>
     <!-- Navbar End -->
@@ -160,8 +156,8 @@
                             <!-- Post meta content-->
                             <div class="text-muted fst-italic mb-2">Posted on January 1, 2022 by Start Bootstrap</div>
                             <!-- Post categories-->
-                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+                            <!-- <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a> -->
                         </header>
                         <!-- Preview image figure-->
                         <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
@@ -186,31 +182,31 @@
                 <div class="col-lg-4">
                     <!-- Search widget-->
                     <div class="card mb-4">
-                        <div class="card-header">Search</div>
+                        <div class="card-header" style="background-color: #52B788">Search</div>
                         <div class="card-body">
                             <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                                <input class="form-control" type="text" placeholder="Enter search word..." aria-label="Enter search term..." aria-describedby="button-search" />
+                                <button class="btn btn-primary" id="button-search" type="button"  style="background-color: #52B788">Go!</button>
                             </div>
                         </div>
                     </div>
                     <!-- Categories widget-->
                     <div class="card mb-4">
-                        <div class="card-header">Keanekaragaman</div>
+                        <div class="card-header" style="background-color: #52B788">Keanekaragaman</div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="/provinsi">Deskripsi Provinsi</a></li>
-                                        <li><a href="/sukuadat">Suku Adat</a></li>
-                                        <li><a href="/tarianadat">Tarian Adat</a></li>
+                                        <li><a style="color: #000000" href="/provinsi">Deskripsi Provinsi</a></li>
+                                        <li><a style="color: #000000" href="/sukuadat">Suku Adat</a></li>
+                                        <li><a style="color: #000000" href="/tarianadat">Tarian Adat</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="/rumahadat">Rumah Adat</a></li>
-                                        <li><a href="/senjatadaerah">Senjata </a></li>
-                                        <li><a href="/pakaianadat">Pakaian Adat</a></li>
+                                        <li><a style="color: #000000" href="/rumahadat">Rumah Adat</a></li>
+                                        <li><a style="color: #000000" href="/senjatadaerah">Senjata </a></li>
+                                        <li><a style="color: #000000" href="/pakaianadat">Pakaian Adat</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -218,7 +214,7 @@
                     </div>
                     <!-- Side widget-->
                     <div class="card mb-4">
-                        <div class="card-header">Side Widget</div>
+                        <div class="card-header" style="background-color: #52B788">Letak Astronomis</div>
                         <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
                     </div>
                 </div>

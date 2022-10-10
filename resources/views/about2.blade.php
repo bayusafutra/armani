@@ -62,10 +62,10 @@
       class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-4 px-lg-5 wow fadeIn"
       data-wow-delay="0.1s"
     >
-      <a href="index.html" class="navbar-brand p-0">
+      <div href="index.html" class="navbar-brand p-0">
         <img class="img-fluid me-3" src="https://fraguru.com/mdimg/perfume/375x500.409.jpg" alt="Icon" />
         <h1 class="m-0" style="color: black;">Armani Pesona Indonesia</h1>
-      </a>
+      </div>
       <button
         type="button"
         class="navbar-toggler"
@@ -79,26 +79,22 @@
           <a href="/Home" class="nav-item nav-link active">Home</a>
           <a href="/About" class="nav-item nav-link">About</a>
           <a href="#CONTACT" class="nav-item nav-link">Contact</a>
-          <a href="/" class="nav-item nav-link">Logout</a>
-          <!-- <div class="nav-item dropdown"> -->
-            <!-- <a
-              href="#"
+          <div class="nav-item dropdown">
+            <a
+              href=""
               class="nav-link dropdown-toggle"
               data-bs-toggle="dropdown"
-              >Pages</a
+              >User</a
             >
             <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-              <a href="animal.html" class="dropdown-item">Our Animals</a>
-              <a href="membership.html" class="dropdown-item">Membership</a>
-              <a href="visiting.html" class="dropdown-item">Visiting Hours</a>
-              <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-              <a href="404.html" class="dropdown-item">404 Page</a>
+              <a href="/profile" class="dropdown-item">Profile</a>
+              <a href="/" class="dropdown-item">Logout</a>
             </div>
-          </div> -->
+          </div>
         </div>
-        <!-- <a href="" class="btn btn-primary"
-          >Buy Ticket<i class="fa fa-arrow-right ms-3"></i
-        ></a> -->
+        <a href="" class="btn btn-primary"
+          >Armani's Store<i class="fa fa-arrow-right ms-3"></i
+        ></a>
       </div>
     </nav>
     <!-- Navbar End -->

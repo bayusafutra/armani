@@ -94,3 +94,7 @@ Route::get('/editprofile', function () {
 Route::get('/loginadmin', function () {
     return view('loginadmin');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});

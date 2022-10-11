@@ -55,7 +55,7 @@
                   </div>
 
                   <div class="pt-1 mb-4">
-                    <a class="btn btn-dark btn-lg btn-block" href="/Home" type="button">Login</a>
+                    <a class="btn btn-dark btn-lg btn-block" href="/dashboard" type="button">Login</a>
                   </div>
 
                   <a class="small text-muted" href="/forgotpassword">Forgot password? </a>

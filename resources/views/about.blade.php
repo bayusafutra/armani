@@ -77,29 +77,24 @@
       <div class="collapse navbar-collapse py-4 py-lg-0" id="navbarCollapse">
         <div class="navbar-nav ms-auto">
           <a href="/" class="nav-item nav-link active">Home</a>
-          <a href="/About" class="nav-item nav-link">About</a>
+          <a href="/about" class="nav-item nav-link">About</a>
           <a href="#CONTACT" class="nav-item nav-link">Contact</a>
-          <a href="/signup" class="nav-item nav-link">Register</a>
-          <a href="/login" class="nav-item nav-link">Login</a>
-          <!-- <div class="nav-item dropdown"> -->
-            <!-- <a
-              href="#"
+          <div class="nav-item dropdown">
+            <a
+              href=""
               class="nav-link dropdown-toggle"
               data-bs-toggle="dropdown"
-              >Pages</a
+              >User</a
             >
             <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-              <a href="animal.html" class="dropdown-item">Our Animals</a>
-              <a href="membership.html" class="dropdown-item">Membership</a>
-              <a href="visiting.html" class="dropdown-item">Visiting Hours</a>
-              <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-              <a href="404.html" class="dropdown-item">404 Page</a>
+              <a href="/signup" class="dropdown-item">Register</a>
+              <a href="/login" class="dropdown-item">Login</a>
             </div>
-          </div> -->
+          </div>
         </div>
-        <!-- <a href="" class="btn btn-primary"
-          >Buy Ticket<i class="fa fa-arrow-right ms-3"></i
-        ></a> -->
+        <a href="/login" class="btn btn-primary"
+          >Armani's Store<i class="fa fa-arrow-right ms-3"></i
+        ></a>
       </div>
     </nav>
     <!-- Navbar End -->

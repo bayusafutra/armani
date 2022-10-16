@@ -16571,7 +16571,7 @@ code {
 
 /* Cards */
 .card {
-  border-radius: 0.25rem; }
+  border-radius: 0.25rem;}
   .card .card-body {
     padding: 1.75rem 1.5625rem; }
     .card .card-body + .card-body {
@@ -21131,5 +21131,6 @@ div.tagsinput {
   width: 100%;
   -webkit-flex-grow: 1;
   flex-grow: 1; }
+
 
 /*# sourceMappingURL=maps/style.css.map */

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Armani Pesona Indosesia</title>
+    <title>Armani Pesona Indonesia</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="keywords" />
     <meta content="" name="description" />
@@ -76,7 +76,7 @@
       </button>
       <div class="collapse navbar-collapse py-4 py-lg-0" id="navbarCollapse">
         <div class="navbar-nav ms-auto">
-          <a href="" class="nav-item nav-link active">Home</a>
+          <a href="/" class="nav-item nav-link">Home</a>
           <a href="/about" class="nav-item nav-link">About</a>
           <a href="#CONTACT" class="nav-item nav-link">Contact</a>
           <div class="nav-item dropdown">
@@ -98,7 +98,7 @@
       </div>
     </nav>
     <!-- Navbar End -->
-
+    
     <!-- Header Start -->
     <div class="container-fluid bg-dark p-0 mb-5">
       <div class="row g-0 flex-column-reverse flex-lg-row">
@@ -107,7 +107,7 @@
             class="header-bg h-100 d-flex flex-column justify-content-center p-5"
           >
             <h1 class="display-4 text-light mb-5">
-              Indonesia Megabiodiversitas
+              Indonesia Megabiodiversitas 
             </h1>
             <div class="d-flex align-items-center pt-4 animated slideInDown">
               <!-- <a href="" class="btn btn-primary py-sm-3 px-3 px-sm-5 me-5"

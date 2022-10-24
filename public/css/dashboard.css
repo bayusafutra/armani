@@ -17,3 +17,12 @@
 .isi h3{
   font-family: Verdana, Arial, Tahoma, Serif;
 }
+
+.isi h4{
+  margin-left: 5cm;
+  margin-right: 5cm;
+}
+
+/* .card-body{
+  background-color: rgb(6, 40, 41);
+} */

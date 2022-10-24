@@ -85,11 +85,11 @@
             <span class="nav-link">Navigation</span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link active" href="index.html">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
-              <span class="menu-title">Dashboard</span>
+              <span class="menu-title">Data User</span>
             </a>
           </li>
           <li class="nav-item menu-items">
@@ -97,14 +97,19 @@
               <span class="menu-icon">
                 <i class="mdi mdi-laptop"></i>
               </span>
-              <span class="menu-title">Basic UI Elements</span>
+              <span class="menu-title">Provinsi</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Deskripsi Provinsi</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Makanan Khas</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Suku Adat</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Tarian Adat</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Rumah Adat</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Senjata</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Pakaiant Adat</a></li>
+
               </ul>
             </div>
           </li>
@@ -113,10 +118,10 @@
               <span class="menu-icon">
                 <i class="mdi mdi-playlist-play"></i>
               </span>
-              <span class="menu-title">Form Elements</span>
+              <span class="menu-title">Armanis's Shop</span>
             </a>
           </li>
-          <li class="nav-item menu-items">
+          <!-- <li class="nav-item menu-items">
             <a class="nav-link" href="pages/tables/basic-table.html">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
@@ -165,7 +170,7 @@
               </span>
               <span class="menu-title">Documentation</span>
             </a>
-          </li>
+          </li> -->
         </ul>
       </nav>
       <!-- partial -->
@@ -188,7 +193,7 @@
             </ul>
             <ul class="navbar-nav navbar-nav-right">
               <li class="nav-item dropdown d-none d-lg-block">
-                <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">+ Create New Project</a>
+                <!-- <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">+ Create New Project</a> -->
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="createbuttonDropdown">
                   <h6 class="p-3 mb-0">Projects</h6>
                   <div class="dropdown-divider"></div>
@@ -397,11 +402,12 @@
                         <div class="isi" style="text-align: center">
                           <!-- <h3>Armani's Admin</h3> -->
                             <h4>
-                                Indonesia merupakan negara yang kaya akan keanekaragaman budaya dan tradisi. 
-                                Berawal dari pengetahuan tentang keanekaragaman Indonesia, user dapat mencintai, bangga, bahkan tumbuhnya rasa untuk melestarikan budaya maupun tradisi Indonesia. 
-                                Dengan hal ini, Armani Pesona Indonesia dibuat dengan tujuan agar user dapat mengetahui lebih dalam tentang apa saja keanekaragaman yang ada di Indonesia.
-                                selain di desain untuk mengetahui keanekaragaman Indonesia, web ini juga di desain agar user dapat menikmati dan mencoba sebagian kecil cirikhas dari setiap provinsi 
-                                dengan bisa membeli makanan khas dari suatu daerah
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                            Magnam itaque, corrupti ad saepe ipsum, inventore enim neque, 
+                            illum omnis ab debitis officiis veniam aspernatur. 
+                            Similique necessitatibus dolorem non delectus ad consequuntur magni facilis in. 
+                            Expedita sapiente rerum optio et temporibus hic, ad quaerat corporis repudiandae voluptas consectetur! 
+                            Quas reprehenderit reiciendis quidem nulla iusto, maxime sint nihil consequatur blanditiis tenetur suscipit numquam quis similique unde voluptatibus.
                             </h4>
                         </div>
                     </div>

@@ -100,7 +100,7 @@
     <!-- Navbar End -->
 
     <!-- Header Start -->
-    <div class="container-fluid bg-dark p-0 mb-5">
+    <div class="container-fluid bg-dark p-0 mb-0">
       <div class="row g-0 flex-column-reverse flex-lg-row">
         <div class="col-lg-6 p-0 wow fadeIn" data-wow-delay="0.1s">
           <div
@@ -143,7 +143,22 @@
     </div>
     <!-- Header End -->
 
-    <div class="container-fluid">
+    <div class="mt-5">
+    @foreach ($posts as $post)
+        <div class="card">
+            <div class="ergacard">
+                <img src="img/{{ $post["image"] }}" class="card-img-top" style="width: 700px; height: 300px" alt={{ $post["provinsi"] }}>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $post["provinsi"]  }}</h5>
+                        <p class="card-text">{{ $post["deskripsi"] }}</p>
+                        <a class="btn btn-success" style="color: white" href="/provinsi/{{ $post["slug"] }}">Baca Selengkapnya...</button></a>
+                    </div>
+            </div>
+        </div>
+    @endforeach
+    </div>
+
+  <div class="container-fluid">
     <div class="card-group">
   <div class="card">
     <img src="/img/IKON NANGRO ACEH.jpg" style="width: 440px; height: 300px;" class="card-img-top" alt="...">
@@ -525,6 +540,8 @@
       <a href=""><button class="btn btn-success">Baca Selengkapnya...</button></a>
     </div>
   </div> -->
+
+
 
     <!-- Video Modal Start -->
     <div

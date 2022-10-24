@@ -15,7 +15,7 @@
 }
 
 .ea{
-    
+
 }
 
 
@@ -488,7 +488,7 @@
 
 .testimonial-carousel .owl-item.center .testimonial-item img {
     border-color: var(--primary) !important;
-} 
+}
 
 .testimonial-carousel .owl-nav {
     position: absolute;
@@ -610,5 +610,13 @@
 
 .card-body{
     color: #000000
+}
+
+.ergacard{
+    text-align: center;
+}
+
+.body{
+    background-color: salmon;
 }
 

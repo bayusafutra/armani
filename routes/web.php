@@ -1,6 +1,10 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\MakananKhasController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home', [
-        "name" => "Erga Viranda",
-        "words" => "Love you sayang"
-    ]);
+    return view('home');
 });
-
 
 Route::get('/login', function () {
     return view('login');
@@ -33,9 +33,7 @@ Route::get('/signup2', function () {
     return view('signup_2');
 });
 
-Route::get('/Home', function () {
-    return view('home2');
-});
+Route::get('/Home', [PostController::class, 'index'] );
 
 Route::get('/about', function () {
     return view('about');
@@ -54,13 +52,13 @@ Route::get('/forgotpass', function () {
     return view('forgotpass2');
 });
 
-Route::get('/provinsi', function () {
-    return view('provinsi');
-});
+Route::get('provinsi/{slug}', [PostController::class, 'show']);
 
 Route::get('/makanankhas', function () {
     return view('makanankhas');
 });
+
+Route::resource('/About2', MakananKhasController::class);
 
 Route::get('/pakaianadat', function () {
     return view('pakaianadat');
@@ -101,3 +99,4 @@ Route::get('/loginadmin', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+

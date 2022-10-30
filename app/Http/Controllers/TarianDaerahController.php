@@ -15,7 +15,9 @@ class TarianDaerahController extends Controller
      */
     public function index()
     {
-        //
+        return view('tarianadat', [
+            "title" => "| Tarian Daerah"
+        ]);
     }
 
     /**

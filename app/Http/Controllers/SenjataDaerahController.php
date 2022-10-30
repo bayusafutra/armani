@@ -15,7 +15,9 @@ class SenjataDaerahController extends Controller
      */
     public function index()
     {
-        //
+        return view('senjatadaerah', [
+            "title" => "| Senjata Daerah"
+        ]);
     }
 
     /**

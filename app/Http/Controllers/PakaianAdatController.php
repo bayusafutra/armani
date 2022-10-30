@@ -15,7 +15,9 @@ class PakaianAdatController extends Controller
      */
     public function index()
     {
-        //
+        return view('pakaianadat', [
+            "title" => "| Pakaian Adat"
+        ]);
     }
 
     /**

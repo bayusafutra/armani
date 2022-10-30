@@ -2,8 +2,27 @@
 
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ArmaniController;
+use App\Http\Controllers\SignupController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProvinceController;
+use App\Http\Controllers\SukuAdatController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\RumahAdatController;
+use App\Http\Controllers\AboutAFterController;
+use App\Http\Controllers\ForgotPassController;
+use App\Http\Controllers\LoginAdminController;
+use App\Http\Controllers\AboutBeforeController;
+use App\Http\Controllers\EditProfileController;
 use App\Http\Controllers\MakananKhasController;
+use App\Http\Controllers\PakaianAdatController;
+use App\Http\Controllers\SignupAfterController;
+use App\Http\Controllers\TarianDaerahController;
+use App\Http\Controllers\SenjataDaerahController;
+use App\Http\Controllers\ForgotPassAfterController;
 
 
 /*
@@ -17,86 +36,47 @@ use App\Http\Controllers\MakananKhasController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [ArmaniController::class, 'index']);
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/login', [LoginController::class, 'index']);
 
-Route::get('/signup', function () {
-    return view('signup');
-});
+Route::get('/signup', [SignupController::class, 'index']);
 
-Route::get('/signup2', function () {
-    return view('signup_2');
-});
+Route::get('/signup2', [SignupAfterController::class, 'index']);
 
-Route::get('/Home', [PostController::class, 'index'] );
+Route::get('/Home', [HomeController::class, 'index'] );
 
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/about', [AboutBeforeController::class, 'index']);
 
-Route::get('/About', function () {
-    return view('about2');
-});
+Route::get('/About', [AboutAFterController::class, 'index']);
 
-Route::get('/forgotpassword', function () {
-    return view('forgotpass');
-});
+Route::get('/forgotpassword', [ForgotPassController::class, 'index']);
 
+Route::get('/forgotpass', [ForgotPassAfterController::class, 'index']);
 
-Route::get('/forgotpass', function () {
-    return view('forgotpass2');
-});
+Route::get('provinsi/{slug}', [ProvinceController::class, 'show']);
 
-Route::get('provinsi/{slug}', [PostController::class, 'show']);
+Route::get('makanankhas/{slug}', [MakananKhasController::class, 'show']);
 
-Route::get('/makanankhas', function () {
-    return view('makanankhas');
-});
+Route::get('/pakaianadat', [PakaianAdatController::class, 'index']);
 
-Route::resource('/About2', MakananKhasController::class);
+Route::get('/rumahadat', [RumahAdatController::class, 'index']);
 
-Route::get('/pakaianadat', function () {
-    return view('pakaianadat');
-});
+Route::get('/senjatadaerah', [SenjataDaerahController::class, 'index']);
 
-Route::get('/rumahadat', function () {
-    return view('rumahadat');
-});
+Route::get('/sukuadat', [SukuAdatController::class, 'index']);
 
-Route::get('/senjatadaerah', function () {
-    return view('senjatadaerah');
-});
+Route::get('/tarianadat', [TarianDaerahController::class, 'index']);
 
-Route::get('/sukuadat', function () {
-    return view('sukuadat');
-});
+Route::get('/profile', [ProfileController::class, 'index']);
 
-Route::get('/tarianadat', function () {
-    return view('tarianadat');
-});
+Route::get('/editprofile', [EditProfileController::class, 'index']);
+
+Route::get('/loginadmin', [LoginAdminController::class, 'index']);
+
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::get('/nyoba', function () {
     return view('nyoba');
-});
-
-Route::get('/profile', function () {
-    return view('profile');
-});
-
-Route::get('/editprofile', function () {
-    return view('editprofile');
-});
-
-Route::get('/loginadmin', function () {
-    return view('loginadmin');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
 });
 

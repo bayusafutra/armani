@@ -15,7 +15,9 @@ class SukuAdatController extends Controller
      */
     public function index()
     {
-        //
+        return view('sukuadat', [
+            "title" => "| Suku Adat"
+        ]);
     }
 
     /**

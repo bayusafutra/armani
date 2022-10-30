@@ -15,7 +15,9 @@ class RumahAdatController extends Controller
      */
     public function index()
     {
-        //
+        return view('rumahadat', [
+            "title" => "| Rumah Adat"
+        ]);
     }
 
     /**

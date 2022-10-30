@@ -77,7 +77,7 @@
       <div class="collapse navbar-collapse py-4 py-lg-0" id="navbarCollapse">
         <div class="navbar-nav ms-auto">
           <a href="/Home" class="nav-item nav-link active">Home</a>
-          <a href="/About" class="nav-item nav-link">About</a>
+          <a href="/about" class="nav-item nav-link">About</a>
           <a href="#CONTACT" class="nav-item nav-link">Contact</a>
           <div class="nav-item dropdown">
             <a
@@ -87,8 +87,8 @@
               >User</a
             >
             <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-              <a href="/profile" class="dropdown-item">Profile</a>
-              <a href="/" class="dropdown-item">Logout</a>
+              <a href="/login" class="dropdown-item">Login</a>
+              <a href="/signup" class="dropdown-item">Register</a>
             </div>
           </div>
         </div>
@@ -138,7 +138,7 @@
           </div>
           <div class="col-lg-3 col-md-6">
             <h5 class="text-light mb-4">Quick Links</h5>
-            <a class="btn btn-link" href="/About">About Us</a>
+            <a class="btn btn-link" href="/about   ">About Us</a>
             <a class="btn btn-link" href="">Contact Us</a>
             <a class="btn btn-link" href="">Our Services</a>
           </div>
@@ -171,7 +171,7 @@
         <div class="copyright">
           <div class="row">
             <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-              &copy; <a class="border-bottom" href="/Home">Armani</a>, All
+              &copy; <a class="border-bottom" href="/">Armani</a>, All
               Right Reserved.
             </div>
             <div class="col-md-6 text-center text-md-end">

@@ -16,9 +16,11 @@ return new class extends Migration
         Schema::create('provinces', function (Blueprint $table) {
             $table->id();
             $table->String("name_provinsi");
+            $table->String("akronim");
             $table->String("author");
             $table->String("slug");
             $table->text("deskripsi");
+            $table->text("konten");
             $table->String("gambar");
             $table->timestamps();
         });

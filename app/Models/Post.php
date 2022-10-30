@@ -25,6 +25,8 @@ class Post
         ]
     ];
 
+    
+
     public static function all(){
         return collect(self::$home_prov);
     }

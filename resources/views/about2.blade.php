@@ -55,20 +55,5 @@
             dengan bisa membeli makanan khas dari suatu daerah</h4>
     </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>nama makanan</th>
-                <th>provinsi</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($makanans as $makanan)
-                <tr>
-                    <td>{{ $makanan->name_makanan }}</td>
-                    <td>{{ $makanan->Province->name_provinsi }}</td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+  
 @endsection

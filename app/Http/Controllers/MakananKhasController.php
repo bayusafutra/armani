@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\MakananKhas;
+use App\Models\Province;
 use App\Http\Requests\StoreMakananKhasRequest;
 use App\Http\Requests\UpdateMakananKhasRequest;
 
@@ -15,11 +16,13 @@ class MakananKhasController extends Controller
      */
     public function index()
     {
-        // dd('test');
-        return view('about2', [
-            'makanans' => MakananKhas::with(['Province'])->get()
+        return view('makanankhas', [
+            "makanan" => MakananKhas::where('slug', $slug)->get(),
+            "title" => "| Makanan Khas"
         ]);
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -48,9 +51,12 @@ class MakananKhasController extends Controller
      * @param  \App\Models\MakananKhas  $makananKhas
      * @return \Illuminate\Http\Response
      */
-    public function show(MakananKhas $makananKhas)
+    public function show($slug)
     {
-        //
+        return view('makanankhas', [
+            "makanan" => MakananKhas::where('slug', $slug)->get(),
+            "title" => "| Makanan Khas"
+        ]);
     }
 
     /**

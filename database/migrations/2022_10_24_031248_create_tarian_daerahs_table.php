@@ -14,12 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tarian_daerahs', function (Blueprint $table) {
-            $table->id("id_tarian");
+            $table->id();
+            $table->foreignId("user_id");
+            $table->foreignId('province_id');
             $table->String("name_tarian");
-            $table->String("author");
-            $table->String("slug");
-            $table->text("deskripsi_tarian");
-            $table->String("gambar");
+            $table->String("slug")->unique();
+            $table->text("deskripsi_tarian")->nullable();
+            $table->String("gambar")->nullable();
             $table->timestamps();
         });
     }

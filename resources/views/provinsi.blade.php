@@ -57,13 +57,13 @@
                                 <!-- Post title-->
                                 <h1 class="fw-bolder mb-1">{{ $provinsi[0]->name_provinsi }}</h1>
                                 <!-- Post meta content-->
-                                <div class="text-muted fst-italic mb-2">Posted on January 1, 2022 by Start Bootstrap</div>
+                                <div class="text-muted fst-italic mb-2">Posted on {{ $provinsi[0]->created_at->diffForHumans() }} by {{ $provinsi[0]->user->name }}</div>
                                 <!-- Post categories-->
                                 <!-- <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
                                 <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a> -->
                             </header>
                             <!-- Preview image figure-->
-                            <figure class="mb-4"><img class="img-fluid rounded" src="/img/{{ $provinsi[0]->gambar }}" style="width:900px; height:400px" alt="..." /></figure>
+                            <figure class="mb-4"><img class="img-fluid rounded" src="/img/{{ $provinsi[0]->gambar }}" style="width:900px; height:350px" alt="..." /></figure>
                             <!-- Post content-->
                             <section class="mb-5">
                                 <p class="fs-5 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe.</p>
@@ -87,40 +87,69 @@
                         <div class="card mb-4">
                             <div class="card-header" style="background-color: #52B788">Search</div>
                                 <div class="card-body">
-                                <div class="input-group">
-                                    <input class="form-control" type="text" placeholder="Enter search word..." aria-label="Enter search term..." aria-describedby="button-search" />
-                                    <a class="btn btn-primary" id="button-search" type="button"  style="background-color: #52B788">Go!</a>
-                                </div>
+                                    <form action="/provinsi/{{ $provinsi[0]->slug }}">
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" placeholder="Search..." name="search" value="{{ request('search') }}">
+                                            <button class="btn btn-primary" type="submit">Search</button>
+                                          </div>
+                                    </form>
                                 </div>
                             </div>
 
                         <!-- Categories widget-->
 
-                        @foreach ($makanan as $makan )
-                            @if($makan["province_id"] === $provinsi[0]->id)
+
                             <div class="card mb-4">
                                 <div class="card-header" style="background-color: #52B788">Keanekaragaman</div>
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <ul class="list-unstyled mb-0">
-                                                <li><a style="color: #000000" href="/makanankhas/{{ $makan["slug"] }}">Makanan Khas</a></li>
-                                                <li><a style="color: #000000" href="/sukuadat">Suku Adat</a></li>
-                                                <li><a style="color: #000000" href="/tarianadat">Tarian Adat</a></li>
+                                                @foreach ($makanan as $makan )
+                                                    @if($makan["province_id"] === $provinsi[0]->id)
+                                                        <li><a style="color: #000000" href="/makanankhas/{{ $makan["slug"] }}">Makanan Khas</a></li>
+                                                    @endif
+                                                @endforeach
+
+                                                @foreach ($sukuadat as $suku )
+                                                    @if ($suku["province_id"] === $provinsi[0]->id)
+                                                        <li><a style="color: #000000" href="/sukuadat/{{ $suku["slug"] }}">Suku Adat</a></li>
+                                                    @endif
+                                                @endforeach
+
+                                                @foreach ($tarianadat as $tari)
+                                                    @if($tari["province_id"] === $provinsi[0]->id)
+                                                        <li><a style="color: #000000" href="/tarianadat/{{ $tari["slug"] }}">Tarian Adat</a></li>
+                                                    @endif
+                                                @endforeach
                                             </ul>
                                         </div>
                                         <div class="col-sm-6">
                                             <ul class="list-unstyled mb-0">
-                                                <li><a style="color: #000000" href="/rumahadat">Rumah Adat</a></li>
-                                                <li><a style="color: #000000" href="/senjatadaerah">Senjata </a></li>
-                                                <li><a style="color: #000000" href="/pakaianadat">Pakaian Adat</a></li>
+                                                @foreach ($rumahadat as $rumah )
+                                                    @if ($rumah["province_id"] === $provinsi[0]->id)
+                                                        <li><a style="color: #000000" href="/rumahadat/{{ $rumah["slug"] }}">Rumah Adat</a></li>
+                                                    @endif
+                                                @endforeach
+
+                                                @foreach ($senjatadaerah as $senjata )
+                                                    @if ($senjata["province_id"] === $provinsi[0]->id)
+                                                        <li><a style="color: #000000" href="/senjatadaerah/{{ $senjata["slug"] }}">Senjata Adat</a></li>
+                                                    @endif
+                                                @endforeach
+
+                                                @foreach ($pakaianadat as $pakaian )
+                                                    @if($pakaian["province_id"] === $provinsi[0]->id)
+                                                        <li><a style="color: #000000" href="/pakaianadat/{{ $pakaian["slug"] }}">Pakaian Adat</a></li>
+                                                    @endif
+                                                @endforeach
+
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            @endif
-                        @endforeach
+
 
 
                         <!-- Side widget-->

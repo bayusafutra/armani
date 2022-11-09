@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\MakananKhas;
 use App\Models\Province;
+use App\Models\SukuAdat;
+use App\Models\TarianDaerah;
+use App\Models\RumahAdat;
+use App\Models\SenjataDaerah;
+use App\Models\PakaianAdat;
 use App\Http\Requests\StoreMakananKhasRequest;
 use App\Http\Requests\UpdateMakananKhasRequest;
 
@@ -18,6 +23,7 @@ class MakananKhasController extends Controller
     {
         return view('makanankhas', [
             "makanan" => MakananKhas::where('slug', $slug)->get(),
+            "provinsi" => Province::all(),
             "title" => "| Makanan Khas"
         ]);
     }
@@ -55,6 +61,12 @@ class MakananKhasController extends Controller
     {
         return view('makanankhas', [
             "makanan" => MakananKhas::where('slug', $slug)->get(),
+            "provinsi" => Province::all(),
+            "sukuadat" =>SukuAdat::all(),
+            "tarianadat" => TarianDaerah::all(),
+            "rumahadat" => RumahAdat::all(),
+            "senjatadaerah" => SenjataDaerah::all(),
+            "pakaianadat" => PakaianAdat::all(),
             "title" => "| Makanan Khas"
         ]);
     }

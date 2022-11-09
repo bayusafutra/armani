@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('makanan_khas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("user_id");
             $table->foreignId('province_id');
             $table->String("name_makanan");
-            $table->String("author");
-            $table->String("slug");
-            $table->text("deskripsi_makanan");
-            $table->String("gambar");
+            $table->String("slug")->unique();
+            $table->text("deskripsi_makanan")->nullable();
+            $table->String("gambar")->nullable();
             $table->timestamps();
         });
     }

@@ -55,14 +55,15 @@
                         <header class="mb-4">
                             <!-- Post title-->
                             <h1 class="fw-bolder mb-1">{{ $makanan[0]->name_makanan }}</h1>
+                            <h6>Based on Provinsi {{ $makanan[0]->province->name_provinsi }}</h6>
                             <!-- Post meta content-->
-                            <div class="text-muted fst-italic mb-2">Posted on January 1, 2022 by Start Bootstrap</div>
+                            <div class="text-muted fst-italic mb-2">Posted on {{ $makanan[0]->created_at->diffForHumans() }} by {{ $makanan[0]->user->name }}</div>
                             <!-- Post categories-->
                             <!-- <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
                             <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a> -->
                         </header>
                         <!-- Preview image figure-->
-                        <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
+                        <figure class="mb-4"><img class="img-fluid rounded" src="/img/makanan/{{ $makanan[0]->gambar }}" style="width:900px; height:350px" alt="..." /></figure>
                         <!-- Post content-->
                         <section class="mb-5">
                             <p class="fs-5 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe.</p>
@@ -74,11 +75,11 @@
                         </section>
                     </article>
                     <!-- Comments section-->
-                    <section class="mb-5">
+                    {{-- <section class="mb-5">
                         <div class="card bg-light">
 
                         </div>
-                    </section>
+                    </section> --}}
                 </div>
                 <!-- Side widgets-->
                 <div class="col-lg-4">
@@ -99,16 +100,44 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a style="color: #000000" href="/provinsi">Deskripsi Provinsi</a></li>
-                                        <li><a style="color: #000000" href="/sukuadat">Suku Adat</a></li>
-                                        <li><a style="color: #000000" href="/tarianadat">Tarian Adat</a></li>
+                                        @foreach ($provinsi as $prov )
+                                            @if($prov["id"] === $makanan[0]->province_id)
+                                                <li><a style="color: #000000" href="/provinsi/{{ $prov["slug"] }}">Deskripsi Provinsi</a></li>
+                                            @endif
+                                        @endforeach
+
+                                        @foreach ($sukuadat as $suku )
+                                            @if ($suku["province_id"] === $makanan[0]->province_id)
+                                                <li><a style="color: #000000" href="/sukuadat/{{ $suku["slug"] }}">Suku Adat</a></li>
+                                            @endif
+                                        @endforeach
+
+                                        @foreach ($tarianadat as $tari )
+                                            @if ($tari["province_id"] === $makanan[0]->province_id)
+                                                <li><a style="color: #000000" href="/tarianadat/{{ $tari["slug"] }}">Tarian Adat</a></li>
+                                            @endif
+                                        @endforeach
                                     </ul>
                                 </div>
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a style="color: #000000" href="/rumahadat">Rumah Adat</a></li>
-                                        <li><a style="color: #000000" href="/senjatadaerah">Senjata </a></li>
-                                        <li><a style="color: #000000" href="/pakaianadat">Pakaian Adat</a></li>
+                                        @foreach ($rumahadat as $rumah )
+                                            @if ($rumah["province_id"] === $makanan[0]->province_id)
+                                                <li><a style="color: #000000" href="/rumahadat/{{ $rumah["slug"] }}">Rumah Adat</a></li>
+                                            @endif
+                                        @endforeach
+
+                                        @foreach ($senjatadaerah as  $senjata )
+                                            @if ($senjata["province_id"] === $makanan[0]->id)
+                                                <li><a style="color: #000000" href="/senjatadaerah/{{ $senjata["slug"] }}">Senjata Adat</a></li>
+                                            @endif
+                                        @endforeach
+
+                                        @foreach ($pakaianadat as $pakaian )
+                                            @if ($pakaian["province_id"] === $makanan[0]->id)
+                                                <li><a style="color: #000000" href="/pakaianadat/{{ $pakaian["slug"] }}">Pakaian Adat</a></li>
+                                            @endif
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>

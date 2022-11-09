@@ -31,13 +31,13 @@
         <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
           <div class="owl-carousel header-carousel">
             <div class="owl-carousel-item">
-              <img class="img-fluid" src="img/carousel-1.jpg" alt="" />
+              <img class="img-fluid" src="{{ asset('img/carousel-1.jpg') }}" alt="" />
             </div>
             <div class="owl-carousel-item">
-              <img class="img-fluid" src="img/carousel-2.jpg" alt="" />
+              <img class="img-fluid" src="{{ asset('img/carousel-2.jpg') }}" alt="" />
             </div>
             <div class="owl-carousel-item">
-              <img class="img-fluid" src="img/carousel-3.jpg" alt="" />
+              <img class="img-fluid" src="{{ asset('img/carousel-3.jpg') }}" alt="" />
             </div>
           </div>
         </div>
@@ -54,15 +54,16 @@
                         <!-- Post header-->
                         <header class="mb-4">
                             <!-- Post title-->
-                            <h1 class="fw-bolder mb-1">(Rumah Adat)</h1>
+                            <h1 class="fw-bolder mb-1">{{ $rumahadat[0]->name_rumahadat }}</h1>
+                            <h6>Based on Provinsi {{ $rumahadat[0]->province->name_provinsi }}</h6>
                             <!-- Post meta content-->
-                            <div class="text-muted fst-italic mb-2">Posted on January 1, 2022 by Start Bootstrap</div>
+                            <div class="text-muted fst-italic mb-2">Posted on {{ $rumahadat[0]->created_at->diffForHumans() }} by {{ $rumahadat[0]->user->name }}</div>
                             <!-- Post categories-->
                             <!-- <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
                             <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a> -->
                         </header>
                         <!-- Preview image figure-->
-                        <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
+                        <figure class="mb-4"><img class="img-fluid rounded" src="/img/rumahadat/{{ $rumahadat[0]->gambar }}" style="width:900px; height:350px" alt="..." /></figure>
                         <!-- Post content-->
                         <section class="mb-5">
                             <p class="fs-5 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe.</p>
@@ -85,12 +86,12 @@
                     <!-- Search widget-->
                     <div class="card mb-4">
                         <div class="card-header" style="background-color: #52B788">Search</div>
-                        <div class="card-body">
-                            <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Enter search word..." aria-label="Enter search term..." aria-describedby="button-search" />
-                                <button class="btn btn-primary" id="button-search" type="button"  style="background-color: #52B788">Go!</button>
+                            <div class="card-body">
+                                <div class="input-group">
+                                    <input class="form-control" type="text" placeholder="Enter search word..." aria-label="Enter search term..." aria-describedby="button-search" />
+                                    <button class="btn btn-primary" id="button-search" type="button"  style="background-color: #52B788">Go!</button>
+                                </div>
                             </div>
-                        </div>
                     </div>
                     <!-- Categories widget-->
                     <div class="card mb-4">
@@ -99,16 +100,44 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a style="color: #000000" href="/provinsi">Deskripsi Provinsi</a></li>
-                                        <li><a style="color: #000000" href="/sukuadat">Suku Adat</a></li>
-                                        <li><a style="color: #000000" href="/tarianadat">Tarian Adat</a></li>
+                                        @foreach ($provinsi as $prov )
+                                            @if ($prov["id"] === $rumahadat[0]->province_id)
+                                                <li><a style="color: #000000" href="/provinsi/{{ $prov["slug"] }}">Deskripsi Provinsi</a></li>
+                                            @endif
+                                        @endforeach
+
+                                        @foreach ($sukuadat as $suku )
+                                            @if ($suku["province_id"] === $rumahadat[0]->province_id)
+                                                <li><a style="color: #000000" href="/sukuadat/{{ $suku["slug"] }}">Suku Adat</a></li>
+                                            @endif
+                                        @endforeach
+
+                                        @foreach ($tarianadat as $tari )
+                                            @if ($tari["province_id"] === $rumahadat[0]->province_id)
+                                                <li><a style="color: #000000" href="/tarianadat/{{ $tari["slug"] }}">Tarian Adat</a></li>
+                                            @endif
+                                        @endforeach
                                     </ul>
                                 </div>
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a style="color: #000000" href="/makanankhas">Makanan Khas</a></li>
-                                        <li><a style="color: #000000" href="/senjatadaerah">Senjata </a></li>
-                                        <li><a style="color: #000000" href="/pakaianadat">Pakaian Adat</a></li>
+                                        @foreach ($makanan as $makan)
+                                            @if ($makan["province_id"] === $rumahadat[0]->province_id)
+                                                <li><a style="color: #000000" href="/makanankhas/{{ $makan["slug"] }}">Makanan Khas</a></li>
+                                            @endif
+                                        @endforeach
+
+                                        @foreach ($senjatadaerah as $senjata)
+                                            @if ($senjata["province_id"] === $rumahadat[0]->province_id)
+                                                <li><a style="color: #000000" href="/senjatadaerah/{{ $senjata["slug"] }}">Senjata Adat</a></li>
+                                            @endif
+                                        @endforeach
+
+                                        @foreach ($pakaianadat as $pakaian )
+                                            @if ($pakaian["province_id"] === $rumahadat[0]->province_id)
+                                                <li><a style="color: #000000" href="/pakaianadat/{{ $pakaian["slug"] }}">Pakaian Adat</a></li>
+                                            @endif
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>

@@ -2,6 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MakananKhas;
+use App\Models\Province;
+use App\Models\SukuAdat;
+use App\Models\TarianDaerah;
+use App\Models\RumahAdat;
+use App\Models\SenjataDaerah;
 use App\Models\PakaianAdat;
 use App\Http\Requests\StorePakaianAdatRequest;
 use App\Http\Requests\UpdatePakaianAdatRequest;
@@ -13,10 +19,17 @@ class PakaianAdatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($slug)
     {
         return view('pakaianadat', [
-            "title" => "| Pakaian Adat"
+            "title" => "| Pakaian Adat",
+            "pakaianadat" =>PakaianAdat::where('slug', $slug)->get(),
+            "provinsi" => Province::all(),
+            "makanan" =>MakananKhas::all(),
+            "tarianadat" => TarianDaerah::all(),
+            "rumahadat" => RumahAdat::all(),
+            "senjatadaerah" => SenjataDaerah::all(),
+            "sukuadat" => SukuAdat::all()
         ]);
     }
 

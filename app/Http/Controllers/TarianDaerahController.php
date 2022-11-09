@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MakananKhas;
+use App\Models\Province;
+use App\Models\SukuAdat;
 use App\Models\TarianDaerah;
+use App\Models\RumahAdat;
+use App\Models\SenjataDaerah;
+use App\Models\PakaianAdat;
 use App\Http\Requests\StoreTarianDaerahRequest;
 use App\Http\Requests\UpdateTarianDaerahRequest;
 
@@ -13,10 +19,17 @@ class TarianDaerahController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($slug)
     {
         return view('tarianadat', [
-            "title" => "| Tarian Daerah"
+            "title" => "| Tarian Daerah",
+            "tarianadat" => Tariandaerah::where('slug', $slug)->get(),
+            "provinsi" => Province::all(),
+            "makanan" =>MakananKhas::all(),
+            "sukuadat" => SukuAdat::all(),
+            "rumahadat" => RumahAdat::all(),
+            "senjatadaerah" => SenjataDaerah::all(),
+            "pakaianadat" => PakaianAdat::all()
         ]);
     }
 

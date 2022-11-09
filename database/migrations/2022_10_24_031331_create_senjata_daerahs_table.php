@@ -14,12 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('senjata_daerahs', function (Blueprint $table) {
-            $table->id("id_senjata");
+            $table->id();
+            $table->foreignId("user_id");
+            $table->foreignId('province_id');
             $table->String("name_senjata");
-            $table->String("author");
-            $table->String("slug");
-            $table->text("deskripsi_senjata");
-            $table->String("gambar");
+            $table->String("slug")->unique();
+            $table->text("deskripsi_senjata")->nullable();
+            $table->String("gambar")->nullable();
             $table->timestamps();
         });
     }

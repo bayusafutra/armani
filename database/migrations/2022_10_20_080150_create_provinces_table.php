@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('provinces', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("user_id");
             $table->String("name_provinsi");
             $table->String("akronim");
-            $table->String("author");
-            $table->String("slug");
+            $table->String("slug")->unique();
             $table->text("deskripsi");
-            $table->text("konten");
+            $table->text("konten")->nullable();
             $table->String("gambar");
             $table->timestamps();
         });

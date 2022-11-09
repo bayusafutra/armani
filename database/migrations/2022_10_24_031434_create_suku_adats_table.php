@@ -14,12 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('suku_adats', function (Blueprint $table) {
-            $table->id("id_suku");
-            $table->String("name_suku");
-            $table->String("author");
-            $table->String("slug");
-            $table->text("deskripsi_suku");
-            $table->String("gambar");
+            $table->id();
+            $table->foreignId("user_id");
+            $table->foreignId('province_id');
+            $table->String("nama_suku");
+            $table->String("slug")->unique();
+            $table->text("deskripsi_suku")->nullable();
+            $table->String("gambar")->nullable();
             $table->timestamps();
         });
     }

@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MakananKhas;
+use App\Models\Province;
+use App\Models\SukuAdat;
+use App\Models\TarianDaerah;
 use App\Models\RumahAdat;
+use App\Models\SenjataDaerah;
+use App\Models\PakaianAdat;
 use App\Http\Requests\StoreRumahAdatRequest;
 use App\Http\Requests\UpdateRumahAdatRequest;
 
@@ -13,10 +19,17 @@ class RumahAdatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($slug)
     {
         return view('rumahadat', [
-            "title" => "| Rumah Adat"
+            "title" => "| Rumah Adat",
+            "rumahadat" => RumahAdat::where('slug', $slug)->get(),
+            "provinsi" => Province::all(),
+            "makanan" =>MakananKhas::all(),
+            "sukuadat" =>SukuAdat::all(),
+            "tarianadat" => TarianDaerah::all(),
+            "senjatadaerah" => SenjataDaerah::all(),
+            "pakaianadat" => PakaianAdat::all()
         ]);
     }
 

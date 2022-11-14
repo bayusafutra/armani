@@ -10,6 +10,7 @@
     <article>
         <p>Id Postingan : {{ $senjataadat[0]->id }}</p>
         <p>Judul Postingan : {{ $senjataadat[0]->name_senjata }}</p>
+        <p>Kategori Provinsi : {{ $senjataadat[0]->province->name_provinsi }}</p>
         <p>Author : {{ $senjataadat[0]->user->name }}</p>
         <p>Slug Makanan Khas : {{ $senjataadat[0]->slug }}</p>
         <p>Deskripsi Makanan Khas : {{ $senjataadat[0]->deskripsi_senjata }}</p>
@@ -18,3 +19,5 @@
         <a href="/senjataadatadmin" class="btn btn-primary mb-1">Back</a>
     </article>
 @endsection
+
+

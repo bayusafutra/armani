@@ -10,6 +10,7 @@
     <article>
         <p>Id Postingan : {{ $rumahadat[0]->id }}</p>
         <p>Judul Postingan : {{ $rumahadat[0]->name_rumahadat }}</p>
+        <p>Kategori Provinsi : {{ $rumahadat[0]->province->name_provinsi }}</p>
         <p>Author : {{ $rumahadat[0]->user->name }}</p>
         <p>Slug Rumah Adat : {{ $rumahadat[0]->slug }}</p>
         <p>Deskripsi Rumah Adat : {{ $rumahadat[0]->deskripsi_rumah_adat }}</p>

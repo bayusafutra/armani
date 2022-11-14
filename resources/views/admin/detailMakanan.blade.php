@@ -10,6 +10,7 @@
     <article>
         <p>Id Postingan : {{ $makanan[0]->id }}</p>
         <p>Judul Postingan : {{ $makanan[0]->name_makanan }}</p>
+        <p>Kategori Provinsi : {{ $makanan[0]->province->name_provinsi }}</p>
         <p>Author : {{ $makanan[0]->user->name }}</p>
         <p>Slug Makanan Khas : {{ $makanan[0]->slug }}</p>
         <p>Deskripsi Makanan Khas : {{ $makanan[0]->deskripsi_makanan }}</p>

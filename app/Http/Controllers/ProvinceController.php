@@ -16,6 +16,8 @@ class ProvinceController extends Controller
 {
 
 
+    
+
     public function show ($slug){
         return view('provinsi', [
             "provinsi" => Province::where('slug', $slug)->get(),

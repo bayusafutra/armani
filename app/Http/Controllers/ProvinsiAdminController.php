@@ -13,7 +13,7 @@ class ProvinsiAdminController extends Controller
             "provinsi" => Province::latest()->paginate(8),
             "count" =>Province::all()
         ]);
-    }
+    }   
 
     public function view(){
         return view('admin.createprov', [

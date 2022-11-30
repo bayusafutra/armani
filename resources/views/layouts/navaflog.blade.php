@@ -88,7 +88,10 @@
             >
             <div class="dropdown-menu rounded-0 rounded-bottom m-0">
               <a href="/profile" class="dropdown-item">Profile</a>
-              <a href="/" class="dropdown-item">Logout</a>
+              <form action="/logout">
+                    @csrf
+                    <a href="/logout">Logout</a>
+              </form>
             </div>
           </div>
         </div>

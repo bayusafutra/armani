@@ -11,7 +11,7 @@ class HomeController extends Controller
 
     public function index(){
         return view('home2', [
-            "home" => Province::latest()->filter(request(['search']))->get(),
+            "home" => Province::latest()->filter(request(['search']))->paginate(10),
             "title" => "| Home"
         ]);
     }

@@ -18,7 +18,7 @@
     <script src="https://kit.fontawesome.com/1a60c45adc.js" crossorigin="anonymous"></script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
 
-    
+
   </head>
 <body>
 
@@ -35,8 +35,23 @@
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
 
-                <form>
+                @if(session()->has('loginError'))
+                    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                        <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </symbol>
+                    </svg>
 
+                    <div class="alert alert-primary d-flex align-items-center" role="alert">
+                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+                        <div>
+                            {{ session('loginError') }}
+                        </div>
+                    </div>
+                @endif
+
+                <form action="/login" method="post">
+                    @csrf
                   <div class="d-flex align-items-center mb-3 pb-1">
                     <i class="fas fa-cubes fa-2x me-3" style="color: black;"></i>
                     <span class="h1 fw-bold mb-0">ARMANI SERUU</span>
@@ -44,19 +59,31 @@
 
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Login into your account</h5>
 
-                  <div class="form-outline mb-4">
-                    <input type="email" id="form2Example17" class="form-control form-control-lg" />
-                    <label class="form-label" for="form2Example17">Email address or Username</label>
+                  <div class="form-group mb-4">
+                    <input type="email" id="form2Example17" class="form-control form-control-lg" placeholder="Email Addres" name="email" />
+                    <label class="form-label" for="form2Example17">Email address</label>
                   </div>
 
-                  <div class="form-outline mb-4">
-                    <input type="password" id="form2Example27" class="form-control form-control-lg" />
+                  <div class="form-group mb-4">
+                    <input type="password" id="form2Example27" class="form-control form-control-lg" placeholder="Password" name="password" />
                     <label class="form-label" for="form2Example27">Password</label>
                   </div>
 
                   <div class="pt-1 mb-4">
-                    <a class="btn btn-dark btn-lg btn-block" href="/Home" type="button">Login</a>
+                    <button class="btn btn-dark btn-lg btn-block"  type="submit">Login</button>
                   </div>
+
+                  @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error )
+                                <li>
+                                    {{ $error }}
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
                   <a class="small text-muted" href="/forgotpassword">Forgot password? </a>
                   <a class="small text-muted" style="color: black" href="/loginadmin">Login as Admin</a>

@@ -18,6 +18,7 @@
                         <div class="mb-3">
                         <label for="user_id" class="form-label">Author</label>
                         <select id="user_id" class="form-select" name="user_id">
+                            <option value="">Pilih Author</option>
                             @foreach ($user as $author )
                                 <option value="{{ $author->id }}">{{ $author->name }}</option>
                             @endforeach
@@ -48,7 +49,7 @@
 
                 <div class="mb-3">
                     <label for="gambar" class="form-label">Gambar</label>
-                    <input type="text" class="form-control" name=gambar>
+                    <input class="form-control btn-lg" id="formFileLg" type="file" name="gambar">
                 </div>
                 @if ($errors->any())
                     <div class="alert alert-danger">

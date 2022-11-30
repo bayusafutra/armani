@@ -18,6 +18,7 @@
                     <div class="mb-3">
                     <label for="user_id" class="form-label">Author</label>
                     <select id="user_id" class="form-select" name="user_id">
+                        <option value="">Pilih Author</option>
                         @foreach ($user as $author )
                             <option value="{{ $author->id }}">{{ $author->name }}</option>
                         @endforeach

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Province;
+use App\Models\MakananKhas;
 use Illuminate\Http\Request;
 
 class ArmaniController extends Controller
@@ -13,10 +14,4 @@ class ArmaniController extends Controller
         ]);
     }
 
-    // public function show ($slug){
-    //     // dd($slug);
-    //     return view('provinsi', [
-    //         "home" => Province::where('slug', $slug)->get()
-    //     ]);
-    // }
 }

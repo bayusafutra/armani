@@ -16,6 +16,6 @@
         <p>Deskripsi Rumah Adat : {{ $rumahadat[0]->deskripsi_rumah_adat }}</p>
         <p>Tanggal Postingan Dibuat : {{ $rumahadat[0]->created_at }}</p>
         <p>Tanggal Postingan Diupdate : {{ $rumahadat[0]->updated_at }}</p>
-        <a href="/makananadmin" class="btn btn-primary mb-1">Back</a>
+        <a href="/rumahadatadmin" class="btn btn-primary mb-1">Back</a>
     </article>
 @endsection

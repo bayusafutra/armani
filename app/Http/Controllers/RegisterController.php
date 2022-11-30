@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
-class LoginController extends Controller
+class RegisterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,30 +15,7 @@ class LoginController extends Controller
      */
     public function index()
     {
-        return view('login');
-    }
-
-    public function authenticate(Request $request){
-        $credentials = $request->validate([
-            "email" => 'required|email',
-            "password" => 'required'
-        ]);
-
-        // dd($request->password);
-
-        if(Auth::attempt($credentials)){
-            $request->session()->regenerate();
-            return redirect()->intended('/Home');
-        }
-
-        return redirect('/login')->with('loginError', 'Login Failed');
-    }
-
-    public function logout(){
-        Auth::logout();
-        request()->session()->invalidate();
-        request()->session()->regenerateToken();
-        return redirect('/');
+        //
     }
 
     /**
@@ -58,7 +36,19 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            "name" => 'required',
+            "email" => 'required',
+            "role_id" => 'required',
+            "password" => 'required'
+
+        ]);
+
+        $validatedData['password'] = Hash::make($validatedData['password']);
+        $validatedData['email_verified_at'] = date("Y-m-d H:i:s");
+
+        User::create($validatedData);
+        return redirect('/login')->with('success', "Registration Successfull Please Login!");
     }
 
     /**

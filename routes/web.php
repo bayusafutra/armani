@@ -10,6 +10,7 @@ use App\Http\Controllers\SignupController;
 use App\Http\Controllers\BelajarController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProvinceController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SukuAdatController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RumahAdatController;
@@ -45,6 +46,8 @@ use App\Http\Controllers\SenjataAdatAdminController;
 |
 */
 
+Route::get('/test', [ArmaniController::class, 'kategori']);
+
 Route::get('/', [ArmaniController::class, 'index']);
 
 Route::get('/Home', [HomeController::class, 'index'] );
@@ -63,7 +66,11 @@ Route::get('/sukuadat/{slug}', [SukuAdatController::class, 'index']);
 
 Route::get('/tarianadat/{slug}', [TarianDaerahController::class, 'index']);
 
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::get('/logout', [LoginController::class, 'logout']);
+
+Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/signup', [SignupController::class, 'index']);
 
@@ -92,6 +99,8 @@ Route::get('/nyoba', function () {
 Route::get('/erga', function () {
     return view('simpenadmin');
 });
+
+Route::get('/test', [BelajarController::class, 'nyoba']);
 
 Route::get('/gemoy', [HomeController::class, 'index3']);
 

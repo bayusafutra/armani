@@ -11,10 +11,11 @@ use App\Models\TarianDaerah;
 use App\Models\SenjataDaerah;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Province extends Model
 {
-    use HasFactory;
+    use HasFactory, Sluggable;
 
     protected $guarded=['id'];
 
@@ -52,5 +53,14 @@ class Province extends Model
 
     public function user(){
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name_provinsi'
+            ]
+        ];
     }
 }

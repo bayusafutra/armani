@@ -18,7 +18,6 @@ use App\Http\Controllers\AboutAFterController;
 use App\Http\Controllers\ForgotPassController;
 use App\Http\Controllers\LoginAdminController;
 use App\Http\Controllers\AboutBeforeController;
-use App\Http\Controllers\EditProfileController;
 use App\Http\Controllers\MakananKhasController;
 use App\Http\Controllers\PakaianAdatController;
 use App\Http\Controllers\SignupAfterController;
@@ -48,35 +47,28 @@ use App\Http\Controllers\SenjataAdatAdminController;
 
 Route::get('/test', [ArmaniController::class, 'kategori']);
 
-Route::get('/', [ArmaniController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'] );
 
-Route::get('/Home', [HomeController::class, 'index'] );
+Route::get('provinsi/{slug}', [ProvinceController::class, 'show'])->middleware('auth');
 
-Route::get('provinsi/{slug}', [ProvinceController::class, 'show']);
+Route::get('makanankhas/{slug}', [MakananKhasController::class, 'show'])->middleware('auth');
 
-Route::get('makanankhas/{slug}', [MakananKhasController::class, 'show']);
+Route::get('/pakaianadat/{slug}', [PakaianAdatController::class, 'index'])->middleware('auth');
 
-Route::get('/pakaianadat/{slug}', [PakaianAdatController::class, 'index']);
+Route::get('/rumahadat/{slug}', [RumahAdatController::class, 'index'])->middleware('auth');
 
-Route::get('/rumahadat/{slug}', [RumahAdatController::class, 'index']);
+Route::get('/senjatadaerah/{slug}', [SenjataDaerahController::class, 'index'])->middleware('auth');
 
-Route::get('/senjatadaerah/{slug}', [SenjataDaerahController::class, 'index']);
+Route::get('/sukuadat/{slug}', [SukuAdatController::class, 'index'])->middleware('auth');
 
-Route::get('/sukuadat/{slug}', [SukuAdatController::class, 'index']);
-
-Route::get('/tarianadat/{slug}', [TarianDaerahController::class, 'index']);
+Route::get('/tarianadat/{slug}', [TarianDaerahController::class, 'index'])->middleware('auth');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/login', [LoginController::class, 'authenticate']);
-Route::get('/logout', [LoginController::class, 'logout']);
+Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
+Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
-Route::post('/register', [RegisterController::class, 'store']);
-
-Route::get('/signup', [SignupController::class, 'index']);
-
-Route::get('/signup2', [SignupAfterController::class, 'index']);
-
-Route::get('/about', [AboutBeforeController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 
 Route::get('/About', [AboutAFterController::class, 'index']);
 
@@ -84,13 +76,13 @@ Route::get('/forgotpassword', [ForgotPassController::class, 'index']);
 
 Route::get('/forgotpass', [ForgotPassAfterController::class, 'index']);
 
-Route::get('/profile', [ProfileController::class, 'index']);
-
-Route::get('/editprofile', [EditProfileController::class, 'index']);
+Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
+Route::get('/editprofile', [ProfileController::class, 'edit'])->middleware('auth');
+Route::post('/editprofile', [ProfileController::class, 'update'])->middleware('auth');
 
 Route::get('/loginadmin', [LoginAdminController::class, 'index']);
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
 Route::get('/nyoba', function () {
     return view('nyoba');
@@ -112,109 +104,123 @@ Route::post('/provinsiStore', [ProvinceController::class, 'store']);
 
 ///////////////ADMIN///////////////
 
-Route::get('/provinsiadmin', [ProvinsiAdminController::class, 'index']);
+Route::get('/provinsiadmin', [ProvinsiAdminController::class, 'index'])->middleware('auth');
 
-Route::get('/createprovinsi', [ProvinsiAdminController::class, 'view']);
+Route::get('/createprovinsi', [ProvinsiAdminController::class, 'view'])->middleware('auth');
 
-Route::post('/provinsicreate', [ProvinsiAdminController::class, 'store']);
+Route::post('/provinsicreate', [ProvinsiAdminController::class, 'store'])->middleware('auth');
 
-Route::get('/viewprovinsi/{slug}', [ProvinsiAdminController::class, 'viewdetail']);
+Route::get('/viewprovinsi/{slug}', [ProvinsiAdminController::class, 'viewdetail'])->middleware('auth');
 
-Route::post('/provinsiupdate', [ProvinsiAdminController::class, 'update']);
+Route::post('/provinsiupdate', [ProvinsiAdminController::class, 'update'])->middleware('auth');
 
-Route::get('/updateprovinsi/{slug}', [ProvinsiAdminController::class, 'viewupdate']);
+Route::get('/updateprovinsi/{slug}', [ProvinsiAdminController::class, 'viewupdate'])->middleware('auth');
 
-Route::get('/provinsidelete', [ProvinsiAdminController::class, 'destroy']);
+Route::get('/provinsidelete', [ProvinsiAdminController::class, 'destroy'])->middleware('auth');
 
-
-
-Route::get('/makananadmin', [MakananAdminController::class, 'index']);
-
-Route::get('/createmakanan', [MakananAdminController::class, 'view']);
-
-Route::post('/makanancreate', [MakananAdminController::class, 'store']);
-
-Route::get('/viewmakanan/{slug}', [MakananAdminController::class, 'viewdetail']);
-
-Route::post('/makananupdate', [MakananAdminController::class, 'update']);
-
-Route::get('/updatemakanan/{slug}', [MakananAdminController::class, 'viewupdate']);
-
-Route::get('/makanandelete', [MakananAdminController::class, 'destroy']);
+Route::get('/createslug', [ProvinsiAdminController::class, 'checkSlug'])->middleware('auth');
 
 
-Route::get('/sukuadatadmin', [SukuAdatAdminController::class, 'index']);
 
-Route::get('/createsukuadat', [SukuAdatAdminController::class, 'view']);
+Route::get('/makananadmin', [MakananAdminController::class, 'index'])->middleware('auth');
 
-Route::post('/sukuadatcreate', [SukuAdatAdminController::class, 'store']);
+Route::get('/createmakanan', [MakananAdminController::class, 'view'])->middleware('auth');
 
-Route::get('/viewsukuadat/{slug}', [SukuAdatAdminController::class, 'viewdetail']);
+Route::post('/makanancreate', [MakananAdminController::class, 'store'])->middleware('auth');
 
-Route::post('/sukuadatupdate', [SukuAdatAdminController::class, 'update']);
+Route::get('/viewmakanan/{slug}', [MakananAdminController::class, 'viewdetail'])->middleware('auth');
 
-Route::get('/updatesukuadat/{slug}', [SukuAdatAdminController::class, 'viewupdate']);
+Route::post('/makananupdate', [MakananAdminController::class, 'update'])->middleware('auth');
 
-Route::get('/sukuadatdelete', [SukuAdatAdminController::class, 'destroy']);
+Route::get('/updatemakanan/{slug}', [MakananAdminController::class, 'viewupdate'])->middleware('auth');
 
+Route::get('/makanandelete', [MakananAdminController::class, 'destroy'])->middleware('auth');
 
-Route::get('/tarianadatadmin', [TarianAdatAdminController::class, 'index']);
-
-Route::get('/createtarianadat', [TarianAdatAdminController::class, 'view']);
-
-Route::post('/tarianadatcreate', [TarianAdatAdminController::class, 'store']);
-
-Route::get('/viewtarianadat/{slug}', [TarianAdatAdminController::class, 'viewdetail']);
-
-Route::post('/tarianadatupdate', [TarianAdatAdminController::class, 'update']);
-
-Route::get('/updatetarianadat/{slug}', [TarianAdatAdminController::class, 'viewupdate']);
-
-Route::get('/tarianadatdelete', [TarianAdatAdminController::class, 'destroy']);
+Route::get('/createslugmakanan', [MakananAdminController::class, 'checkSlug'])->middleware('auth');
 
 
-Route::get('/rumahadatadmin', [RumahAdatAdminController::class, 'index']);
 
-Route::get('/createrumahadat', [RumahAdatAdminController::class, 'view']);
+Route::get('/sukuadatadmin', [SukuAdatAdminController::class, 'index'])->middleware('auth');
 
-Route::post('/rumahadatcreate', [RumahAdatAdminController::class, 'store']);
+Route::get('/createsukuadat', [SukuAdatAdminController::class, 'view'])->middleware('auth');
 
-Route::get('/viewrumahadat/{slug}', [RumahAdatAdminController::class, 'viewdetail']);
+Route::post('/sukuadatcreate', [SukuAdatAdminController::class, 'store'])->middleware('auth');
 
-Route::post('/rumahadatupdate', [RumahAdatAdminController::class, 'update']);
+Route::get('/viewsukuadat/{slug}', [SukuAdatAdminController::class, 'viewdetail'])->middleware('auth');
 
-Route::get('/updaterumahadat/{slug}', [RumahAdatAdminController::class, 'viewupdate']);
+Route::post('/sukuadatupdate', [SukuAdatAdminController::class, 'update'])->middleware('auth');
 
-Route::get('/rumahadatdelete', [RumahAdatAdminController::class, 'destroy']);
+Route::get('/updatesukuadat/{slug}', [SukuAdatAdminController::class, 'viewupdate'])->middleware('auth');
 
+Route::get('/sukuadatdelete', [SukuAdatAdminController::class, 'destroy'])->middleware('auth');
 
-Route::get('/senjataadatadmin', [SenjataAdatAdminController::class, 'index']);
-
-Route::get('/createsenjataadat', [SenjataAdatAdminController::class, 'view']);
-
-Route::post('/senjataadatcreate', [SenjataAdatAdminController::class, 'store']);
-
-Route::get('/viewsenjataadat/{slug}', [SenjataAdatAdminController::class, 'viewdetail']);
-
-Route::post('/senjataadatupdate', [SenjataAdatAdminController::class, 'update']);
-
-Route::get('/updatesenjataadat/{slug}', [SenjataAdatAdminController::class, 'viewupdate']);
-
-Route::get('/senjataadatdelete', [SenjataAdatAdminController::class, 'destroy']);
+Route::get('/createslugsuku', [SukuAdatAdminController::class, 'checkSlug'])->middleware('auth');
 
 
-Route::get('/pakaianadatadmin', [PakaianAdatAdminController::class, 'index']);
+Route::get('/tarianadatadmin', [TarianAdatAdminController::class, 'index'])->middleware('auth');
 
-Route::get('/createpakaianadat', [PakaianAdatAdminController::class, 'view']);
+Route::get('/createtarianadat', [TarianAdatAdminController::class, 'view'])->middleware('auth');
 
-Route::post('/pakaianadatcreate', [PakaianAdatAdminController::class, 'store']);
+Route::post('/tarianadatcreate', [TarianAdatAdminController::class, 'store'])->middleware('auth');
 
-Route::get('/viewpakaianadat/{slug}', [PakaianAdatAdminController::class, 'viewdetail']);
+Route::get('/viewtarianadat/{slug}', [TarianAdatAdminController::class, 'viewdetail'])->middleware('auth');
 
-Route::post('/pakaianadatupdate', [PakaianAdatAdminController::class, 'update']);
+Route::post('/tarianadatupdate', [TarianAdatAdminController::class, 'update'])->middleware('auth');
 
-Route::get('/updatepakaianadat/{slug}', [PakaianAdatAdminController::class, 'viewupdate']);
+Route::get('/updatetarianadat/{slug}', [TarianAdatAdminController::class, 'viewupdate'])->middleware('auth');
 
-Route::get('/pakaianadatdelete', [PakaianAdatAdminController::class, 'destroy']);
+Route::get('/tarianadatdelete', [TarianAdatAdminController::class, 'destroy'])->middleware('auth');
 
+Route::get('/createslugtari', [TarianAdatAdminController::class, 'checkSlug'])->middleware('auth');
+
+
+Route::get('/rumahadatadmin', [RumahAdatAdminController::class, 'index'])->middleware('auth');
+
+Route::get('/createrumahadat', [RumahAdatAdminController::class, 'view'])->middleware('auth');
+
+Route::post('/rumahadatcreate', [RumahAdatAdminController::class, 'store'])->middleware('auth');
+
+Route::get('/viewrumahadat/{slug}', [RumahAdatAdminController::class, 'viewdetail'])->middleware('auth');
+
+Route::post('/rumahadatupdate', [RumahAdatAdminController::class, 'update'])->middleware('auth');
+
+Route::get('/updaterumahadat/{slug}', [RumahAdatAdminController::class, 'viewupdate'])->middleware('auth');
+
+Route::get('/rumahadatdelete', [RumahAdatAdminController::class, 'destroy'])->middleware('auth');
+
+Route::get('/createslugrumah', [RumahAdatAdminController::class, 'checkSlug'])->middleware('auth');
+
+
+Route::get('/senjataadatadmin', [SenjataAdatAdminController::class, 'index'])->middleware('auth');
+
+Route::get('/createsenjataadat', [SenjataAdatAdminController::class, 'view'])->middleware('auth');
+
+Route::post('/senjataadatcreate', [SenjataAdatAdminController::class, 'store'])->middleware('auth');
+
+Route::get('/viewsenjataadat/{slug}', [SenjataAdatAdminController::class, 'viewdetail'])->middleware('auth');
+
+Route::post('/senjataadatupdate', [SenjataAdatAdminController::class, 'update'])->middleware('auth');
+
+Route::get('/updatesenjataadat/{slug}', [SenjataAdatAdminController::class, 'viewupdate'])->middleware('auth');
+
+Route::get('/senjataadatdelete', [SenjataAdatAdminController::class, 'destroy'])->middleware('auth');
+
+Route::get('/createslugsenjata', [SenjataAdatAdminController::class, 'checkSlug'])->middleware('auth');
+
+
+Route::get('/pakaianadatadmin', [PakaianAdatAdminController::class, 'index'])->middleware('auth');
+
+Route::get('/createpakaianadat', [PakaianAdatAdminController::class, 'view'])->middleware('auth');
+
+Route::post('/pakaianadatcreate', [PakaianAdatAdminController::class, 'store'])->middleware('auth');
+
+Route::get('/viewpakaianadat/{slug}', [PakaianAdatAdminController::class, 'viewdetail'])->middleware('auth');
+
+Route::post('/pakaianadatupdate', [PakaianAdatAdminController::class, 'update'])->middleware('auth');
+
+Route::get('/updatepakaianadat/{slug}', [PakaianAdatAdminController::class, 'viewupdate'])->middleware('auth');
+
+Route::get('/pakaianadatdelete', [PakaianAdatAdminController::class, 'destroy'])->middleware('auth');
+
+Route::get('/createslugpakaian', [PakaianAdatAdminController::class, 'checkSlug'])->middleware('auth');
 

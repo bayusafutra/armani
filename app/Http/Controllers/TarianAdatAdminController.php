@@ -6,6 +6,8 @@ use App\Models\TarianDaerah;
 use App\Models\User;
 use App\Models\Province;
 use Illuminate\Http\Request;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Storage;
 
 class TarianAdatAdminController extends Controller
 {
@@ -40,34 +42,66 @@ class TarianAdatAdminController extends Controller
 
     public function store (Request $request){
         $validatedData = $request->validate([
-            "name_tarian" => 'required',
+            "name_tarian" => 'required|max:255',
             "province_id" => 'required',
-            "user_id" => 'required',
-            "slug" => 'required',
-            "deskripsi_tarian" => 'required',
-            "gambar" => 'required'
+            "slug" => 'required|unique:tarian_daerahs',
+            "deskripsi_tarian" => 'max:2000',
+            "gambar" => 'image|file|max:10240'
         ]);
+
+        if($request->file('gambar')){
+            $validatedData['gambar'] = $request->file('gambar')->store('img-tariadat');
+        }
+
+        $validatedData['user_id'] = auth()->user()->id;
         TarianDaerah::create($validatedData);
-        return redirect('/createtarianadat');
+        return redirect('/createtarianadat')->with('success', 'Post baru berhasil ditambahkan!');
     }
 
     public function destroy(){
         $id=request('id');
+        $oldImage=request('oldImage');
+        if($oldImage){
+            Storage::delete($oldImage);
+        }
         TarianDaerah::destroy($id);
-        return redirect('/tarianadatadmin');
+        return redirect('/tarianadatadmin')->with('success', 'Post berhasil dihapus!');
     }
 
     public function update(Request $request){
-        $slug=request('slugid');
-        $validatedData = $request->validate([
-            "name_tarian" => 'required',
-            "user_id" => 'required',
+        $slug=request('slug');
+        $rules = [
+            "name_tarian" => 'required|max:255',
             "province_id" => 'required',
-            "slug" => 'required',
-            "deskripsi_tarian" => 'required',
-            "gambar" => 'required'
-        ]);
+            "deskripsi_tarian" => 'max:5000',
+            "gambar" => 'image|file|max:10240'
+        ];
+
+        if($request->file('gambar')){
+            $validatedData['gambar'] = $request->file('gambar')->store('img-tariadat');
+        }
+
+        if($request->slug != $slug){
+            $rules['slug'] = 'required|unique:tarian_daerahs';
+        }
+
+        $validatedData = $request->validate($rules);
+
+        if($request->file('gambar')){
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['gambar'] = $request->file('gambar')->store('img-tariadat');
+        }
+
+        $validatedData['user_id'] = auth()->user()->id;
         TarianDaerah::where('slug', $slug)->update($validatedData);
-        return redirect('/tarianadatadmin');
+        return redirect('/tarianadatadmin')->with('success', 'Post berhasil diupdate!');
+    }
+
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(TarianDaerah::class, 'slug', $request->name_tarian);
+        return response()->json(['slug' => $slug]);
     }
 }

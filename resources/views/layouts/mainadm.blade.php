@@ -22,6 +22,19 @@
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{ asset('img/labelmini.png') }}" />
+    {{-- Trix Editor --}}
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+
+    <style>
+        trix-toolbar [data-trix-button-group="file-tools"]{
+            display:none;
+        }
+
+        trix-toolbar .trix-button-group button {
+            background-color: rgb(250, 250, 250);
+        }
+    </style>
   </head>
   <body>
     <div class="container-scroller">
@@ -40,7 +53,7 @@
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">Henry Klein</h5>
+                  <h5 class="mb-0 font-weight-normal">{{ auth()->user()->name }}</h5>
                   <span>Gold Member</span>
                 </div>
               </div>
@@ -280,7 +293,7 @@
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                   <div class="navbar-profile">
                     <img class="img-xs rounded-circle" src="{{ asset('img/faces/face15.jpg') }}" alt="">
-                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Henry Klein</p>
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ auth()->user()->name }}</p>
                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                   </div>
                 </a>
@@ -304,9 +317,12 @@
                         <i class="mdi mdi-logout text-danger"></i>
                       </div>
                     </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Log out</p>
-                    </div>
+                    <form action="/logout" method="post">
+                        @csrf
+                        <div class="preview-item-content">
+                            <button class="dropdown-item mb-1 ">Log out</button>
+                        </div>
+                    </form>
                   </a>
                   <div class="dropdown-divider"></div>
                   <p class="p-3 mb-0 text-center">Advanced settings</p>

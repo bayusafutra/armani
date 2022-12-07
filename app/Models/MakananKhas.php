@@ -6,10 +6,12 @@ use App\Models\User;
 use App\Models\Province;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class MakananKhas extends Model
 {
-    use HasFactory;
+    use HasFactory, Sluggable;
+    
     protected $guarded=['id'];
 
     public function province(){
@@ -18,5 +20,14 @@ class MakananKhas extends Model
 
     public function user(){
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name_makanan'
+            ]
+        ];
     }
 }

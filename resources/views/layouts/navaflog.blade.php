@@ -76,23 +76,27 @@
       </button>
       <div class="collapse navbar-collapse py-4 py-lg-0" id="navbarCollapse">
         <div class="navbar-nav ms-auto">
-          <a href="/Home" class="nav-item nav-link active">Home</a>
+          <a href="/" class="nav-item nav-link active">Home</a>
           <a href="/About" class="nav-item nav-link">About</a>
           <a href="#CONTACT" class="nav-item nav-link">Contact</a>
           <div class="nav-item dropdown">
-            <a
-              href=""
-              class="nav-link dropdown-toggle"
-              data-bs-toggle="dropdown"
-              >User</a
-            >
-            <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-              <a href="/profile" class="dropdown-item">Profile</a>
-              <form action="/logout">
-                    @csrf
-                    <a href="/logout">Logout</a>
-              </form>
-            </div>
+            @auth
+                <li class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ auth()->user()->username }}</li>
+                <li class="dropdown-menu rounded-0 rounded-bottom m-0">
+                    <a href="/profile" class="dropdown-item">Profile</a>
+                    <form action="/logout" method="post">
+                            @csrf
+                            <button class="dropdown-item" style="color: black">Logout</button>
+                    </form>
+                </li>
+            @else
+                <li class="nav-link dropdown-toggle" data-bs-toggle="dropdown">User</li>
+                <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                    <a href="/login" class="dropdown-item">Login</a>
+                    <a href="/register" class="dropdown-item">Register</a>
+                </div>
+            @endauth
+
           </div>
         </div>
         <a href="" class="btn btn-primary"
@@ -147,26 +151,30 @@
           </div>
           <div class="col-lg-3 col-md-6">
             <h5 class="text-light mb-4">Popular Links</h5>
-            <a class="btn btn-link" href="/about">About Us</a>
+            <a class="btn btn-link" href="/About">About Us</a>
             <a class="btn btn-link" href="">Contact Us</a>
             <a class="btn btn-link" href="">Our Services</a>
           </div>
           <div class="col-lg-3 col-md-6">
             <h5 class="text-light mb-4">Newsletter</h5>
             <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-            <div class="position-relative mx-auto" style="max-width: 400px">
-              <input
-                class="form-control border-0 w-100 py-3 ps-4 pe-5"
-                type="text"
-                placeholder="Your email"
-              />
-              <a
-                type="button"
-                class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" href="/signup"
-              >
-                SignUp
-              </a>
-            </div>
+
+            @guest
+                <div class="position-relative mx-auto" style="max-width: 400px">
+                    <input
+                    class="form-control border-0 w-100 py-3 ps-4 pe-5"
+                    type="text"
+                    placeholder="Your email"
+                    />
+                    <a
+                    type="button"
+                    class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" href="/register"
+                    >
+                    SignUp
+                    </a>
+                </div>
+            @endguest
+
           </div>
         </div>
       </div>
@@ -174,7 +182,7 @@
         <div class="copyright">
           <div class="row">
             <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-              &copy; <a class="border-bottom" href="/Home">Armani</a>, All
+              &copy; <a class="border-bottom" href="/">Armani</a>, All
               Right Reserved.
             </div>
             <div class="col-md-6 text-center text-md-end">

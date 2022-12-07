@@ -4,18 +4,18 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="{{ asset('login.css') }}">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css') }}" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js') }}" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-    <script src="https://kit.fontawesome.com/1a60c45adc.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('https://kit.fontawesome.com/1a60c45adc.js') }}" crossorigin="anonymous"></script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
 
 
@@ -30,24 +30,23 @@
           <div class="row g-8">
             <div class="col-md-6 col-lg-5 d-none d-md-block" style="height: 200px">
               <img src="/img/login.jpg"
-                alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem; height: 609px" />
+                alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem; height: 565px" />
             </div>
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
 
-                @if(session()->has('loginError'))
-                    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                        <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
-                        </symbol>
-                    </svg>
-
-                    <div class="alert alert-primary d-flex align-items-center" role="alert">
-                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
-                        <div>
-                            {{ session('loginError') }}
+                @if (session()->has('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
-                    </div>
+                @endif
+
+                @if (session()->has('loginError'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ session('loginError') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
                 @endif
 
                 <form action="/login" method="post">
@@ -59,35 +58,29 @@
 
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Login into your account</h5>
 
-                  <div class="form-group mb-4">
-                    <input type="email" id="form2Example17" class="form-control form-control-lg" placeholder="Email Addres" name="email" />
-                    <label class="form-label" for="form2Example17">Email address</label>
+                  <div class="form-floating mb-4">
+                    <input type="email" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="name@example.com" name="email" autofocus required value="{{ old('email') }}" />
+                    <label for="email">Email address</label>
+
+                    @error('email')
+                        <div class="invalid-feedback"></div>
+                        {{ $message }}
+                    @enderror
+
                   </div>
 
-                  <div class="form-group mb-4">
-                    <input type="password" id="form2Example27" class="form-control form-control-lg" placeholder="Password" name="password" />
-                    <label class="form-label" for="form2Example27">Password</label>
+                  <div class="form-floating mb-4">
+                    <input type="password" id="password" class="form-control" placeholder="Password" name="password" required />
+                    <label for="password">Password</label>
                   </div>
 
                   <div class="pt-1 mb-4">
-                    <button class="btn btn-dark btn-lg btn-block"  type="submit">Login</button>
+                    <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
                   </div>
 
-                  @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error )
-                                <li>
-                                    {{ $error }}
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-
-                  <a class="small text-muted" href="/forgotpassword">Forgot password? </a>
+                  {{-- <a class="small text-muted" href="/forgotpassword">Forgot password? </a> --}}
                   <a class="small text-muted" style="color: black" href="/loginadmin">Login as Admin</a>
-                  <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="/signup"
+                  <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="/register"
                       style="color: #393f81;">Register here</a></p>
                 </form>
 

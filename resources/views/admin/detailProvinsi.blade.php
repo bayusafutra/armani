@@ -4,7 +4,11 @@
     <h1 class="text-center mb-4">Detail Post Provinsi</h1>
     <p>
         <div class="text-center">
-            <img class="img-fluid" src="/img/{{ $provinsi[0]->gambar }}" style="width:900px; height:350px" alt="">
+            @if (strlen($provinsi[0]->gambar)>50)
+                <img src="{{ asset('storage/'.$provinsi[0]->gambar) }}" class="img-fluid" style="width:900px; height:350px">
+            @else
+                <img src="/img/{{ $provinsi[0]->gambar }}" class="img-fluid mb-3" style="width:900px; height:350px">
+            @endif
         </div>
     </p>
     <article>

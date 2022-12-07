@@ -4,7 +4,11 @@
     <h1 class="text-center mb-4">Detail Post Senjata Daerah</h1>
     <p>
         <div class="text-center">
-            <img class="img-fluid" src="/img/senjata/{{ $senjataadat[0]->gambar }}" style="width:900px; height:350px" alt="">
+            @if (strlen($senjataadat[0]->gambar)>50)
+                <img src="{{ asset('storage/'.$senjataadat[0]->gambar) }}" class="img-fluid" style="width:900px; height:350px">
+            @else
+                <img src="/img/senjata/{{ $senjataadat[0]->gambar }}" class="img-fluid mb-3" style="width:900px; height:350px">
+            @endif
         </div>
     </p>
     <article>

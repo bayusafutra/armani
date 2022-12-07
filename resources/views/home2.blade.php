@@ -37,7 +37,7 @@
 
     <div class="row justify-content-center mt-4 mb-4">
         <div class="col-md-6">
-            <form action="/Home">
+            <form action="/">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Search..." name="search" value="{{ request('search') }}">
                     <button class="btn btn-primary" type="submit">Search</button>
@@ -46,22 +46,28 @@
         </div>
     </div>
 
-    @if ($home->count())
-        @foreach ($home as $post)
-            <div class="card">
-                <div class="ergacard">
-                    <img src="img/{{ $post["gambar"] }}" class="card-img-top" style="width: 700px; height: 300px" alt={{ $post["name_provinsi"] }}>
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $post["name_provinsi"]  }}</h5>
-                            <p class="card-text">{{ $post["deskripsi"] }}</p>
+@if ($home->count())
+    @foreach ($home as $post)
+        <div class="card">
+            <div class="ergacard">
+                <img src="img/{{ $post["gambar"] }}" class="card-img-top" style="width: 700px; height: 300px" alt={{ $post["name_provinsi"] }}>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $post["name_provinsi"]  }}</h5>
+                        <p class="card-text">{{ $post["deskripsi"] }}</p>
+
+                        @auth
                             <a class="btn btn-success" style="color: white" href="/provinsi/{{ $post["slug"] }}">Baca Selengkapnya...</button></a>
-                        </div>
-                </div>
+                        @else
+                            <a class="btn btn-success" style="color: white" href="/login">Baca Selengkapnya...</button></a>
+                        @endauth
+
+                    </div>
             </div>
-        @endforeach
-    @else
-        <p class="text-center fs-2">Search Not Found!!</p>
-    @endif
+        </div>
+    @endforeach
+@else
+    <p class="text-center fs-2">Search Not Found!!</p>
+@endif
 
     <div class="erga mt-4 d-flex justify-content-center">
         {{ $home->links() }}

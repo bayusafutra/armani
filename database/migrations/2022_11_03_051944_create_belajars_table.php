@@ -19,6 +19,7 @@ return new class extends Migration
             $table->String("slug")->unique();
             $table->String("akronim");
             $table->String("gambar");
+            $table->String("erga")->unique();
             $table->timestamps();
         });
     }

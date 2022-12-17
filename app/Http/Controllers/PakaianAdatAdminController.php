@@ -65,7 +65,7 @@ class PakaianAdatAdminController extends Controller
             Storage::delete($oldImage);
         }
         PakaianAdat::destroy($id);
-        return redirect('/pakaianadatadmin')->with('success', 'Post berhasil dihapus!');
+        return redirect()->back()->with('success', 'Post berhasil dihapus!');
     }
 
     public function update(Request $request){

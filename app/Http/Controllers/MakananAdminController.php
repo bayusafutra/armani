@@ -65,7 +65,7 @@ class MakananAdminController extends Controller
             Storage::delete($oldImage);
         }
         MakananKhas::destroy($id);
-        return redirect('/makananadmin')->with('success', 'Post berhasil dihapus!');
+        return redirect()->back()->with('success', 'Post berhasil dihapus!');
     }
 
     public function update(Request $request){

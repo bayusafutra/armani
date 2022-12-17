@@ -65,7 +65,7 @@ class SenjataAdatAdminController extends Controller
             Storage::delete($oldImage);
         }
         SenjataDaerah::destroy($id);
-        return redirect('/senjataadatadmin')->with('success', 'Post berhasil dihapus!');
+        return redirect()->back()->with('success', 'Post berhasil dihapus!');
     }
 
     public function update(Request $request){
@@ -84,7 +84,7 @@ class SenjataAdatAdminController extends Controller
         if($request->slug != $slug){
             $rules['slug'] = 'required|unique:senjata_daerahs';
         }
-        
+
         $validatedData = $request->validate($rules);
 
         if($request->file('gambar')){

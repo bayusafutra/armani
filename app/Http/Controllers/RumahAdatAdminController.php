@@ -65,7 +65,7 @@ class RumahAdatAdminController extends Controller
             Storage::delete($oldImage);
         }
         RumahAdat::destroy($id);
-        return redirect('/rumahadatadmin')->with('success', 'Post berhasil dihapus!');
+        return redirect()->back()->with('success', 'Post berhasil dihapus!');
     }
 
     public function update(Request $request){

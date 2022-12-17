@@ -65,7 +65,7 @@ class ProvinsiAdminController extends Controller
             Storage::delete($oldImage);
         }
         Province::destroy($id);
-        return redirect('/provinsiadmin')->with('success', 'Post berhasil dihapus!');
+        return redirect()->back()->with('success', 'Post berhasil dihapus!');
     }
 
     public function update(Request $request){

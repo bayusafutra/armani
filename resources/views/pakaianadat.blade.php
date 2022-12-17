@@ -63,7 +63,11 @@
                             <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a> -->
                         </header>
                         <!-- Preview image figure-->
-                        <figure class="mb-4"><img class="img-fluid rounded" src="/img/pakaianadat/{{ $pakaianadat[0]->gambar }}" style="width:900px; height:350px" alt="..." /></figure>
+                        @if (strlen($pakaianadat[0]->gambar)>50)
+                            <figure class="mb-4"><img class="img-fluid rounded" src="{{ asset('storage/'.$pakaianadat[0]->gambar) }}" style="width:900px; height:350px" alt="..." /></figure>
+                        @else
+                            <figure class="mb-4"><img class="img-fluid rounded" src="/img/pakaianadat/{{ $pakaianadat[0]->gambar }}" style="width:900px; height:350px" alt="..." /></figure>
+                        @endif
                         <!-- Post content-->
                         <section class="mb-5">
                             <p class="fs-5 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe.</p>
@@ -89,7 +93,7 @@
                         <div class="card-body">
                             <div class="input-group">
                                 <input class="form-control" type="text" placeholder="Enter search word..." aria-label="Enter search term..." aria-describedby="button-search" />
-                                <button class="btn btn-primary" id="button-search" type="button"  style="background-color: #52B788">Go!</button>
+                                <button class="btn btn-success" style="background-color: #52B788; color:black" id="button-search" type="button">Search</button>
                             </div>
                         </div>
                     </div>

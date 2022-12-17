@@ -82,8 +82,6 @@ Route::post('/editprofile', [ProfileController::class, 'update'])->middleware('a
 
 Route::get('/loginadmin', [LoginAdminController::class, 'index']);
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
-
 Route::get('/nyoba', function () {
     return view('nyoba');
 });
@@ -103,124 +101,131 @@ Route::get('/ProvinceDelete', [ProvinceController::class, 'destroy']);
 Route::post('/provinsiStore', [ProvinceController::class, 'store']);
 
 ///////////////ADMIN///////////////
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('admin');
 
-Route::get('/provinsiadmin', [ProvinsiAdminController::class, 'index'])->middleware('auth');
 
-Route::get('/createprovinsi', [ProvinsiAdminController::class, 'view'])->middleware('auth');
+Route::get('/provinsiadmin', [ProvinsiAdminController::class, 'index'])->middleware('admin');
 
-Route::post('/provinsicreate', [ProvinsiAdminController::class, 'store'])->middleware('auth');
+Route::get('/createprovinsi', [ProvinsiAdminController::class, 'view'])->middleware('admin');
 
-Route::get('/viewprovinsi/{slug}', [ProvinsiAdminController::class, 'viewdetail'])->middleware('auth');
+Route::post('/provinsicreate', [ProvinsiAdminController::class, 'store'])->middleware('admin');
 
-Route::post('/provinsiupdate', [ProvinsiAdminController::class, 'update'])->middleware('auth');
+Route::get('/viewprovinsi/{slug}', [ProvinsiAdminController::class, 'viewdetail'])->middleware('admin');
 
-Route::get('/updateprovinsi/{slug}', [ProvinsiAdminController::class, 'viewupdate'])->middleware('auth');
+Route::post('/provinsiupdate', [ProvinsiAdminController::class, 'update'])->middleware('admin');
 
-Route::get('/provinsidelete', [ProvinsiAdminController::class, 'destroy'])->middleware('auth');
+Route::get('/updateprovinsi/{slug}', [ProvinsiAdminController::class, 'viewupdate'])->middleware('admin');
 
-Route::get('/createslug', [ProvinsiAdminController::class, 'checkSlug'])->middleware('auth');
+Route::get('/provinsidelete', [ProvinsiAdminController::class, 'destroy'])->middleware('admin');
 
+Route::get('/createslug', [ProvinsiAdminController::class, 'checkSlug'])->middleware('admin');
 
 
-Route::get('/makananadmin', [MakananAdminController::class, 'index'])->middleware('auth');
 
-Route::get('/createmakanan', [MakananAdminController::class, 'view'])->middleware('auth');
+Route::get('/makananadmin', [MakananAdminController::class, 'index'])->middleware('admin');
 
-Route::post('/makanancreate', [MakananAdminController::class, 'store'])->middleware('auth');
+Route::get('/createmakanan', [MakananAdminController::class, 'view'])->middleware('admin');
 
-Route::get('/viewmakanan/{slug}', [MakananAdminController::class, 'viewdetail'])->middleware('auth');
+Route::post('/makanancreate', [MakananAdminController::class, 'store'])->middleware('admin');
 
-Route::post('/makananupdate', [MakananAdminController::class, 'update'])->middleware('auth');
+Route::get('/viewmakanan/{slug}', [MakananAdminController::class, 'viewdetail'])->middleware('admin');
 
-Route::get('/updatemakanan/{slug}', [MakananAdminController::class, 'viewupdate'])->middleware('auth');
+Route::post('/makananupdate', [MakananAdminController::class, 'update'])->middleware('admin');
 
-Route::get('/makanandelete', [MakananAdminController::class, 'destroy'])->middleware('auth');
+Route::get('/updatemakanan/{slug}', [MakananAdminController::class, 'viewupdate'])->middleware('admin');
 
-Route::get('/createslugmakanan', [MakananAdminController::class, 'checkSlug'])->middleware('auth');
+Route::get('/makanandelete', [MakananAdminController::class, 'destroy'])->middleware('admin');
 
+Route::get('/createslugmakanan', [MakananAdminController::class, 'checkSlug'])->middleware('admin');
 
 
-Route::get('/sukuadatadmin', [SukuAdatAdminController::class, 'index'])->middleware('auth');
 
-Route::get('/createsukuadat', [SukuAdatAdminController::class, 'view'])->middleware('auth');
+Route::get('/sukuadatadmin', [SukuAdatAdminController::class, 'index'])->middleware('admin');
 
-Route::post('/sukuadatcreate', [SukuAdatAdminController::class, 'store'])->middleware('auth');
+Route::get('/createsukuadat', [SukuAdatAdminController::class, 'view'])->middleware('admin');
 
-Route::get('/viewsukuadat/{slug}', [SukuAdatAdminController::class, 'viewdetail'])->middleware('auth');
+Route::post('/sukuadatcreate', [SukuAdatAdminController::class, 'store'])->middleware('admin');
 
-Route::post('/sukuadatupdate', [SukuAdatAdminController::class, 'update'])->middleware('auth');
+Route::get('/viewsukuadat/{slug}', [SukuAdatAdminController::class, 'viewdetail'])->middleware('admin');
 
-Route::get('/updatesukuadat/{slug}', [SukuAdatAdminController::class, 'viewupdate'])->middleware('auth');
+Route::post('/sukuadatupdate', [SukuAdatAdminController::class, 'update'])->middleware('admin');
 
-Route::get('/sukuadatdelete', [SukuAdatAdminController::class, 'destroy'])->middleware('auth');
+Route::get('/updatesukuadat/{slug}', [SukuAdatAdminController::class, 'viewupdate'])->middleware('admin');
 
-Route::get('/createslugsuku', [SukuAdatAdminController::class, 'checkSlug'])->middleware('auth');
+Route::get('/sukuadatdelete', [SukuAdatAdminController::class, 'destroy'])->middleware('admin');
 
+Route::get('/createslugsuku', [SukuAdatAdminController::class, 'checkSlug'])->middleware('admin');
 
-Route::get('/tarianadatadmin', [TarianAdatAdminController::class, 'index'])->middleware('auth');
 
-Route::get('/createtarianadat', [TarianAdatAdminController::class, 'view'])->middleware('auth');
+Route::get('/tarianadatadmin', [TarianAdatAdminController::class, 'index'])->middleware('admin');
 
-Route::post('/tarianadatcreate', [TarianAdatAdminController::class, 'store'])->middleware('auth');
+Route::get('/createtarianadat', [TarianAdatAdminController::class, 'view'])->middleware('admin');
 
-Route::get('/viewtarianadat/{slug}', [TarianAdatAdminController::class, 'viewdetail'])->middleware('auth');
+Route::post('/tarianadatcreate', [TarianAdatAdminController::class, 'store'])->middleware('admin');
 
-Route::post('/tarianadatupdate', [TarianAdatAdminController::class, 'update'])->middleware('auth');
+Route::get('/viewtarianadat/{slug}', [TarianAdatAdminController::class, 'viewdetail'])->middleware('admin');
 
-Route::get('/updatetarianadat/{slug}', [TarianAdatAdminController::class, 'viewupdate'])->middleware('auth');
+Route::post('/tarianadatupdate', [TarianAdatAdminController::class, 'update'])->middleware('admin');
 
-Route::get('/tarianadatdelete', [TarianAdatAdminController::class, 'destroy'])->middleware('auth');
+Route::get('/updatetarianadat/{slug}', [TarianAdatAdminController::class, 'viewupdate'])->middleware('admin');
 
-Route::get('/createslugtari', [TarianAdatAdminController::class, 'checkSlug'])->middleware('auth');
+Route::get('/tarianadatdelete', [TarianAdatAdminController::class, 'destroy'])->middleware('admin');
 
+Route::get('/createslugtari', [TarianAdatAdminController::class, 'checkSlug'])->middleware('admin');
 
-Route::get('/rumahadatadmin', [RumahAdatAdminController::class, 'index'])->middleware('auth');
 
-Route::get('/createrumahadat', [RumahAdatAdminController::class, 'view'])->middleware('auth');
+Route::get('/rumahadatadmin', [RumahAdatAdminController::class, 'index'])->middleware('admin');
 
-Route::post('/rumahadatcreate', [RumahAdatAdminController::class, 'store'])->middleware('auth');
+Route::get('/createrumahadat', [RumahAdatAdminController::class, 'view'])->middleware('admin');
 
-Route::get('/viewrumahadat/{slug}', [RumahAdatAdminController::class, 'viewdetail'])->middleware('auth');
+Route::post('/rumahadatcreate', [RumahAdatAdminController::class, 'store'])->middleware('admin');
 
-Route::post('/rumahadatupdate', [RumahAdatAdminController::class, 'update'])->middleware('auth');
+Route::get('/viewrumahadat/{slug}', [RumahAdatAdminController::class, 'viewdetail'])->middleware('admin');
 
-Route::get('/updaterumahadat/{slug}', [RumahAdatAdminController::class, 'viewupdate'])->middleware('auth');
+Route::post('/rumahadatupdate', [RumahAdatAdminController::class, 'update'])->middleware('admin');
 
-Route::get('/rumahadatdelete', [RumahAdatAdminController::class, 'destroy'])->middleware('auth');
+Route::get('/updaterumahadat/{slug}', [RumahAdatAdminController::class, 'viewupdate'])->middleware('admin');
 
-Route::get('/createslugrumah', [RumahAdatAdminController::class, 'checkSlug'])->middleware('auth');
+Route::get('/rumahadatdelete', [RumahAdatAdminController::class, 'destroy'])->middleware('admin');
 
+Route::get('/createslugrumah', [RumahAdatAdminController::class, 'checkSlug'])->middleware('admin');
 
-Route::get('/senjataadatadmin', [SenjataAdatAdminController::class, 'index'])->middleware('auth');
 
-Route::get('/createsenjataadat', [SenjataAdatAdminController::class, 'view'])->middleware('auth');
+Route::get('/senjataadatadmin', [SenjataAdatAdminController::class, 'index'])->middleware('admin');
 
-Route::post('/senjataadatcreate', [SenjataAdatAdminController::class, 'store'])->middleware('auth');
+Route::get('/createsenjataadat', [SenjataAdatAdminController::class, 'view'])->middleware('admin');
 
-Route::get('/viewsenjataadat/{slug}', [SenjataAdatAdminController::class, 'viewdetail'])->middleware('auth');
+Route::post('/senjataadatcreate', [SenjataAdatAdminController::class, 'store'])->middleware('admin');
 
-Route::post('/senjataadatupdate', [SenjataAdatAdminController::class, 'update'])->middleware('auth');
+Route::get('/viewsenjataadat/{slug}', [SenjataAdatAdminController::class, 'viewdetail'])->middleware('admin');
 
-Route::get('/updatesenjataadat/{slug}', [SenjataAdatAdminController::class, 'viewupdate'])->middleware('auth');
+Route::post('/senjataadatupdate', [SenjataAdatAdminController::class, 'update'])->middleware('admin');
 
-Route::get('/senjataadatdelete', [SenjataAdatAdminController::class, 'destroy'])->middleware('auth');
+Route::get('/updatesenjataadat/{slug}', [SenjataAdatAdminController::class, 'viewupdate'])->middleware('admin');
 
-Route::get('/createslugsenjata', [SenjataAdatAdminController::class, 'checkSlug'])->middleware('auth');
+Route::get('/senjataadatdelete', [SenjataAdatAdminController::class, 'destroy'])->middleware('admin');
 
+Route::get('/createslugsenjata', [SenjataAdatAdminController::class, 'checkSlug'])->middleware('admin');
 
-Route::get('/pakaianadatadmin', [PakaianAdatAdminController::class, 'index'])->middleware('auth');
 
-Route::get('/createpakaianadat', [PakaianAdatAdminController::class, 'view'])->middleware('auth');
+Route::get('/pakaianadatadmin', [PakaianAdatAdminController::class, 'index'])->middleware('admin');
 
-Route::post('/pakaianadatcreate', [PakaianAdatAdminController::class, 'store'])->middleware('auth');
+Route::get('/createpakaianadat', [PakaianAdatAdminController::class, 'view'])->middleware('admin');
 
-Route::get('/viewpakaianadat/{slug}', [PakaianAdatAdminController::class, 'viewdetail'])->middleware('auth');
+Route::post('/pakaianadatcreate', [PakaianAdatAdminController::class, 'store'])->middleware('admin');
 
-Route::post('/pakaianadatupdate', [PakaianAdatAdminController::class, 'update'])->middleware('auth');
+Route::get('/viewpakaianadat/{slug}', [PakaianAdatAdminController::class, 'viewdetail'])->middleware('admin');
 
-Route::get('/updatepakaianadat/{slug}', [PakaianAdatAdminController::class, 'viewupdate'])->middleware('auth');
+Route::post('/pakaianadatupdate', [PakaianAdatAdminController::class, 'update'])->middleware('admin');
 
-Route::get('/pakaianadatdelete', [PakaianAdatAdminController::class, 'destroy'])->middleware('auth');
+Route::get('/updatepakaianadat/{slug}', [PakaianAdatAdminController::class, 'viewupdate'])->middleware('admin');
 
-Route::get('/createslugpakaian', [PakaianAdatAdminController::class, 'checkSlug'])->middleware('auth');
+Route::get('/pakaianadatdelete', [PakaianAdatAdminController::class, 'destroy'])->middleware('admin');
 
+Route::get('/createslugpakaian', [PakaianAdatAdminController::class, 'checkSlug'])->middleware('admin');
+
+
+///////////////////////////////////////////////STORE////////////////////////////////////////////////////
+Route::get('/armanistore', function(){
+    return view('store.index');
+});

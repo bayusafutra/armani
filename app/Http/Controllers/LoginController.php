@@ -22,12 +22,16 @@ class LoginController extends Controller
             "email" => 'required|email',
             "password" => 'required'
         ]);
-        // dd("erga cantik");
-        // dd($request->password);
 
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
-            return redirect()->intended('/');
+
+            if(auth()->user()->role_id !== 1){
+                return redirect()->intended('/');
+            }else{
+                return redirect()->intended('/dashboard');
+            }
+
         }
 
         return back()->with('loginError', 'Login Failed, Please try again!');

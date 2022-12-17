@@ -38,6 +38,15 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
+
+    {{-- Bootstrap --}}
+    <link href="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css') }}" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js') }}" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    {{-- Shop Cart --}}
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
   </head>
 
   <body>
@@ -62,7 +71,7 @@
       class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-4 px-lg-5 wow fadeIn"
       data-wow-delay="0.1s"
     >
-      <div href="index.html" class="navbar-brand p-0">
+      <div class="navbar-brand p-0">
         <img class="img-fluid me-3" src="https://fraguru.com/mdimg/perfume/375x500.409.jpg" alt="Icon" />
         <h1 class="m-0" style="color: black;">Armani Pesona Indonesia</h1>
       </div>
@@ -82,7 +91,10 @@
           <div class="nav-item dropdown">
             @auth
                 <li class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ auth()->user()->username }}</li>
-                <li class="dropdown-menu rounded-0 rounded-bottom m-0">
+                <li class="dropdown-menu rounded-0 rounded-bottom m-0 btn-success">
+                    @can('admin')
+                      <a href="/dashboard" class="dropdown-item">My Dashboard</a>
+                    @endcan
                     <a href="/profile" class="dropdown-item">Profile</a>
                     <form action="/logout" method="post">
                             @csrf
@@ -90,16 +102,16 @@
                     </form>
                 </li>
             @else
+
                 <li class="nav-link dropdown-toggle" data-bs-toggle="dropdown">User</li>
-                <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                <div class="dropdown-menu rounded-0 rounded-bottom m-0 btn-success">
                     <a href="/login" class="dropdown-item">Login</a>
                     <a href="/register" class="dropdown-item">Register</a>
                 </div>
             @endauth
-
           </div>
         </div>
-        <a href="" class="btn btn-primary"
+        <a href="" class="btn btn-success"
           >Armani's Store<i class="fa fa-arrow-right ms-3"></i
         ></a>
       </div>
@@ -202,8 +214,8 @@
     <!-- Footer End -->
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"
-      ><i class="bi bi-arrow-up"></i
+    <a href="#" class="btn btn-lg btn-success btn-lg-square back-to-top"
+      ><i class="bi bi-arrow-up d-flex justify-content-center p-1"></i
     ></a>
 
     <!-- JavaScript Libraries -->

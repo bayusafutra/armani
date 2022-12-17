@@ -65,7 +65,7 @@ class TarianAdatAdminController extends Controller
             Storage::delete($oldImage);
         }
         TarianDaerah::destroy($id);
-        return redirect('/tarianadatadmin')->with('success', 'Post berhasil dihapus!');
+        return redirect()->back()->with('success', 'Post berhasil dihapus!');
     }
 
     public function update(Request $request){

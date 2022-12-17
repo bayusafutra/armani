@@ -14,7 +14,7 @@
         <form action="/makananupdate" method="POST" enctype="multipart/form-data">
             @method("post")
             @csrf
-            
+
             <div class="form-floating mb-3">
                 <label for="name_makanan">Nama Makanan Khas</label>
                 <input type="text" name="name_makanan" class="form-control @error('name_makanan') is-invalid @enderror" id="name_makanan" required value="{{ old('name_makanan', $makanan[0]->name_makanan) }}"/>

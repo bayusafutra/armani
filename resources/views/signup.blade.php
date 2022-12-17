@@ -67,7 +67,6 @@
                             {{ $message }}
                         </div>
                     @enderror
-
                   </div>
 
                   <div class="form-floating mb-3">

@@ -98,9 +98,9 @@
             <span class="nav-link">Navigation</span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link active" href="index.html">
+            <a class="nav-link active" href="">
               <span class="menu-icon">
-                <i class="mdi mdi-speedometer"></i>
+                <i class="mdi mdi-account"></i>
               </span>
               <span class="menu-title">Data User</span>
             </a>
@@ -108,9 +108,9 @@
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
-                <i class="mdi mdi-laptop"></i>
+                <i class="mdi mdi-pencil"></i>
               </span>
-              <span class="menu-title">Provinsi</span>
+              <span class="menu-title">Blog</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
@@ -122,6 +122,9 @@
                 <li class="nav-item"> <a class="nav-link" href="/rumahadatadmin">Rumah Adat</a></li>
                 <li class="nav-item"> <a class="nav-link" href="/senjataadatadmin">Senjata Daerah</a></li>
                 <li class="nav-item"> <a class="nav-link" href="/pakaianadatadmin">Pakaiant Adat</a></li>
+              </ul>
+
+              <ul class="nav flex-column sub-menu">
 
               </ul>
             </div>
@@ -129,7 +132,7 @@
           <li class="nav-item menu-items">
             <a class="nav-link" href="pages/forms/basic_elements.html">
               <span class="menu-icon">
-                <i class="mdi mdi-playlist-play"></i>
+                <i class="mdi mdi-shopping"></i>
               </span>
               <span class="menu-title">Armanis's Shop</span>
             </a>

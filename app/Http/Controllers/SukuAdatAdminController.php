@@ -65,7 +65,7 @@ class SukuAdatAdminController extends Controller
             Storage::delete($oldImage);
         }
         SukuAdat::destroy($id);
-        return redirect('/sukuadatadmin')->with('success', 'Post berhasil dihapus!');
+        return redirect()->back()->with('success', 'Post berhasil dihapus!');
     }
 
     public function update(Request $request){

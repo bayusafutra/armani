@@ -63,7 +63,11 @@
                                 <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a> -->
                             </header>
                             <!-- Preview image figure-->
-                            <figure class="mb-4"><img class="img-fluid rounded" src="/img/{{ $provinsi[0]->gambar }}" style="width:900px; height:350px" alt="..." /></figure>
+                            @if (strlen($provinsi[0]->gambar)>50)
+                                <figure class="mb-4"><img class="img-fluid rounded" src="{{ asset('storage/'.$provinsi[0]->gambar) }}" style="width:900px; height:350px" alt="..." /></figure>
+                            @else
+                                <figure class="mb-4"><img class="img-fluid rounded" src="/img/{{ $provinsi[0]->gambar }}" style="width:900px; height:350px" alt="..." /></figure>
+                            @endif
                             <!-- Post content-->
                             <section class="mb-5">
                                 <p class="fs-5 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe.</p>
@@ -90,7 +94,7 @@
                                     <form action="/provinsi/{{ $provinsi[0]->slug }}">
                                         <div class="input-group mb-3">
                                             <input type="text" class="form-control" placeholder="Search..." name="search" value="{{ request('search') }}">
-                                            <button class="btn btn-primary" type="submit">Search</button>
+                                            <button class="btn btn-success" style="background-color: #52B788; color:black" type="submit">Search</button>
                                           </div>
                                     </form>
                                 </div>

@@ -15,9 +15,6 @@ use App\Models\PakaianAdat;
 class ProvinceController extends Controller
 {
 
-
-    
-
     public function show ($slug){
         return view('provinsi', [
             "provinsi" => Province::where('slug', $slug)->get(),
@@ -27,7 +24,7 @@ class ProvinceController extends Controller
             "rumahadat" => RumahAdat::all(),
             "senjatadaerah" => SenjataDaerah::all(),
             "pakaianadat" => PakaianAdat::all(),
-            "title" => "| Provinsi"
+            "title" => "| ".$provinsi->akronim
         ]);
     }
 

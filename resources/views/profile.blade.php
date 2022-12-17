@@ -46,19 +46,40 @@
     <!-- Header End -->
     <div class="container">
         @if (session()->has('success'))
-        <div class="alert alert-success col-lg-12" role="alert">
-            {{ session('success') }}
-        </div>
-    @endif
+            <div class="alert alert-success col-lg-12" role="alert">
+                {{ session('success') }}
+            </div>
+        @endif
     <div class="main-body">
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
               <div class="card" style="height: 0px">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    @if (auth()->user()->gender !== null)
+                        @if (auth()->user()->gender === 1)
+                          @if (auth()->user()->gambar)
+                            <img src="{{ asset('storage/'.auth()->user()->gambar) }}" class="rounded-circle" width="150">
+                          @else
+                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="rounded-circle" width="150">
+                          @endif
+                        @else
+                          @if (auth()->user()->gambar)
+                            <img src="{{ asset('storage/'.auth()->user()->gambar) }}" class="rounded-circle" width="150">
+                          @else
+                            <img src="/img/girl.png" class="rounded-circle" width="150">
+                          @endif
+                        @endif
+                    @else
+                      <img src="/img/user.png" alt="Admin" class="rounded-circle" width="150">
+                    @endif
                     <div class="mt-3">
                       <h4>{{ auth()->user()->username }}</h4>
+                      @if (auth()->user()->role_id === 1)
+                        <h6>Admin</h6>
+                      @else
+                        <h6>Customer</h6>
+                      @endif
                     </div>
                   </div>
                 </div>
@@ -97,6 +118,21 @@
                     </div>
                     <div class="col-sm-9 text-secondary">
                       {{ auth()->user()->name }}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Gender</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      @if (auth()->user()->gender !== null)
+                        @if (auth()->user()->gender === true)
+                            Male
+                        @else
+                            Female
+                        @endif
+                      @endif
                     </div>
                   </div>
                   <hr>

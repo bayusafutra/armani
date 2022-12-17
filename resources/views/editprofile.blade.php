@@ -47,16 +47,37 @@
     <div class="container">
     <div class="main-body">
 
-        <form action="/editprofile" method="post">
+        <form action="/editprofile" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row gutters-sm">
                 <div class="col-md-4 mb-3">
                   <div class="card" style="height: 0px">
                     <div class="card-body">
                       <div class="d-flex flex-column align-items-center text-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                        @if ($profile[0]->gender !== null)
+                          @if ($profile[0]->gender === 1)
+                            @if ($profile[0]->gambar)
+                              <img src="{{ asset('storage/'.$profile[0]->gambar) }}" class="rounded-circle" width="150">
+                            @else
+                              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="rounded-circle" width="150">
+                            @endif
+                          @else
+                            @if ($profile[0]->gambar)
+                              <img src="{{ asset('storage/'.$profile[0]->gambar) }}" class="rounded-circle" width="150">
+                            @else
+                              <img src="/img/girl.png" class="rounded-circle" width="150">
+                            @endif
+                          @endif
+                        @else
+                          <img src="/img/user.png" alt="Admin" class="rounded-circle" width="150">
+                        @endif
                         <div class="mt-3">
                           <h4>{{ auth()->user()->username }}</h4>
+                          @if (auth()->user()->role_id === 1)
+                            <h6>Admin</h6>
+                          @else
+                            <h6>Customer</h6>
+                          @endif
                         </div>
                       </div>
                     </div>
@@ -79,6 +100,31 @@
                         </div>
                       <hr>
 
+                      <div class="form-floating">
+                        <select id="gender" class="form-select" name="gender">
+                          @if ($profile[0]->gender === null)
+                            <option value="" class="form-select" selected>Choose your gender</option>
+                            <option value="1" class="form-select">Male</option>
+                            <option value="0" class="form-select">Female</option>
+                          @else
+                            @if ($profile[0]->gender === 1)
+                              <option value="{{ $profile[0]->gender }}" class="form-select">Male</option>
+                            @else
+                              <option value="{{ $profile[0]->gender }}" class="form-select">Female</option>
+                            @endif
+                          @endif
+                        </select>
+                          <label for="gender">Gender</label>
+
+                        @error('gender')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+
+                      </div>
+                    <hr>
+
                         <div class="form-floating">
                             <input class="form-control @error('notelp') is-invalid @enderror" placeholder="Phone"  type="text" value="{{ $profile[0]->notelp }}" name="notelp" id="notelp" required />
                             <label for="notelp">Phone</label>
@@ -100,19 +146,34 @@
                             </div>
                         @enderror
 
+                      </div>
+                    <hr>
+
+                      <div class="form-floating">
+                          <input class="form-control @error('alamat') is-invalid @enderror" placeholder="Address"  type="text" value="{{ $profile[0]->alamat }}" name="alamat" id="alamat" required value="{{ old('alamat') }}"/>
+                          <label for="alamat">Address</label>
+                          @error('alamat')
+                              <div class="invalid-feedback">
+                                  {{ $message }}
+                              </div>
+                          @enderror
+
+                      </div>
+                      <hr>
+
+                      <div class="">
+                        <label for="gambar">Profile Picture</label>
+                        <input type="hidden" name="oldImage" value="{{ $profile[0]->gambar }}">
+                        <img src="{{ asset('storage/'.$profile[0]->gambar) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                        <input class="form-control btn-lg @error('gambar') is-invalid @enderror" id="gambar" type="file" name="gambar" value="{{ old('gambar') }}"
+                        onchange="previewImage()"/>
+                        @error('gambar')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
-                  <hr>
 
-                        <div class="form-floating">
-                            <input class="form-control @error('alamat') is-invalid @enderror" placeholder="Address"  type="text" value="{{ $profile[0]->alamat }}" name="alamat" id="alamat" required value="{{ old('alamat') }}"/>
-                            <label for="alamat">Address</label>
-                            @error('alamat')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-
-                        </div>
                       </div>
                       <div class="row">
                         <div class="col-sm-12">
@@ -129,8 +190,22 @@
               </div>
 
             </div>
-        </div>
-
         </form>
 
+<script>
+  function previewImage(){
+        const gambar = document.querySelector('#gambar');
+        const imgPreview = document.querySelector('.img-preview');
+
+        imgPreview.style.display='block';
+
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(gambar.files[0]);
+
+        oFReader.onload = function(oFREvent){
+            imgPreview.src = oFREvent.target.result;
+        }
+
+    }
+</script>
 @endsection

@@ -24,7 +24,7 @@ class ProvinceController extends Controller
             "rumahadat" => RumahAdat::all(),
             "senjatadaerah" => SenjataDaerah::all(),
             "pakaianadat" => PakaianAdat::all(),
-            "title" => "| ".$provinsi->akronim
+            "title" => "| Provinsi"
         ]);
     }
 

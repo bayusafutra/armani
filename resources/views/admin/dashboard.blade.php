@@ -10,12 +10,15 @@
               <div class="isi" style="text-align: center">
                 <!-- <h3>Armani's Admin</h3> -->
                   <h4>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Magnam itaque, corrupti ad saepe ipsum, inventore enim neque,
-                  illum omnis ab debitis officiis veniam aspernatur.
-                  Similique necessitatibus dolorem non delectus ad consequuntur magni facilis in.
-                  Expedita sapiente rerum optio et temporibus hic, ad quaerat corporis repudiandae voluptas consectetur!
-                  Quas reprehenderit reiciendis quidem nulla iusto, maxime sint nihil consequatur blanditiis tenetur suscipit numquam quis similique unde voluptatibus.
+                  Armani's Admin dapat mengelola semua informasi mengenai 37 Provinsi yang ada di Indonesia.
+                  Armani's Admin dapat menginputkan, mengupdate, serta menghapus setiap data informasi yang ada pada
+                  37 Provinsi di Indonesia mulai dari Deskripsi Provinsi, Suku Daerah, Rumah Adat, Senjata Daerah,
+                  Pakaian Adat, Tarian Daerah, serta Makanan Daerah. 
+
+
+
+
+
                   </h4>
               </div>
           </div>
